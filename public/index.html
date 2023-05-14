@@ -6,6 +6,7 @@
     <title>MiniStudyMate</title>
     <link rel="icon" href="images/icon.svg">
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
   </head>
   <body>
     <header>
@@ -19,7 +20,7 @@
       <form id="add-record-form" autocomplete="off">
           <div class="user-input-wrp">
           <br/>
-              <select required> 
+              <select id="university" required> 
                   <option selected disabled value="">Select your University</option>
                   <option value="ktu">APJ Abdul Kalam Technological University</option>
                   <option value="mg">MG University</option>
@@ -27,18 +28,19 @@
               </select>
           </div>
 
-          <div class="user-input-wrp">
+          <div id="subject-code" class="user-input-wrp" style="display: none;">
           <br/>
           <input type="text" class="inputText" id="subjcode" name="subjcode" required/>
           <span class="floating-label">Subject Code</span>
           </div>
   
-          <div><input type="submit" value="Submit" /></div>
+          <div id="submit-button" style="display: none;"><input type="submit" value="Submit" /></div>
 
       </form></div>
   <footer>
       <p>&copy; 2023 MiniStudyMate </p>    
   </footer>
+
+  <script src="script.js"></script>
 </body>
-  </body>
 </html>
