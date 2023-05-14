@@ -4,8 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MiniStudyMate</title>
+    <link rel="icon" href="images/icon.svg">
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    A Web based Study Material Retrieval System
+    <header>
+      <h1><img src="images/icon.svg" alt="">MiniStudyMate</h1>
+      <p>A Web-based Study Material Retrieval System </p>
+      <nav>
+          <a href="login.html"><i class="fa-solid fa-right-from-bracket">Logout</i></a>
+        </nav>
+      </header>
+  <div style="align-items: flex-start;">
+      <form id="add-record-form" autocomplete="off">
+          <div class="user-input-wrp">
+          <br/>
+              <select required> 
+                  <option selected disabled value="">Select your University</option>
+                  <option value="ktu">APJ Abdul Kalam Technological University</option>
+                  <option value="mg">MG University</option>
+                  <option value="calicut">Calicut University</option>
+              </select>
+          </div>
+
+          <div class="user-input-wrp">
+          <br/>
+          <input type="text" class="inputText" id="subjcode" name="subjcode" required/>
+          <span class="floating-label">Subject Code</span>
+          </div>
+  
+          <div><input type="submit" value="Submit" /></div>
+
+      </form></div>
+  <footer>
+      <p>&copy; 2023 MiniStudyMate </p>    
+  </footer>
+</body>
   </body>
 </html>
