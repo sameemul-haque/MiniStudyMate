@@ -18,8 +18,7 @@
       </header>
   <div style="align-items: flex-start;">
       <form id="add-record-form" autocomplete="off">
-          <div class="user-input-wrp">
-          <br/>
+          <div class="input-group">
               <select id="university" required> 
                   <option selected disabled value="">Select your University</option>
                   <option value="ktu">APJ Abdul Kalam Technological University</option>
@@ -28,10 +27,9 @@
               </select>
           </div>
 
-          <div id="subject-code" class="user-input-wrp" style="display: none;">
-          <br/>
-          <input type="text" class="inputText" id="subjcode" name="subjcode" required/>
-          <span class="floating-label">Subject Code</span>
+          <div id="subject-code" class="input-group" style="display: none;">
+            <input type="text" name="subjcode" id="subjcode" class="input" required>
+            <label class="user-label">Subject Code</label>
           </div>
   
           <div id="submit-button" style="display: none;"><input type="submit" value="Submit" /></div>
