@@ -7,6 +7,7 @@
     <link rel="icon" href="images/icon.svg">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <script src="https://npmcdn.com/pdfjs-dist/build/pdf.js"></script>
   </head>
   <body>
     <header>
@@ -17,7 +18,7 @@
         </nav>
       </header>
   <div style="align-items: flex-start;">
-      <form id="add-record-form" autocomplete="off">
+      <!-- <form id="add-record-form" autocomplete="off"> -->
           <div class="input-group">
               <select id="university" required> 
                   <option selected disabled value="">Select your University</option>
@@ -32,13 +33,15 @@
             <label class="user-label">Subject Code</label>
           </div>
   
-          <div id="submit-button" style="display: none; vertical-align: top;"><input type="submit" value="Submit" /></div>
+          <div id="submit-button" style="display: none; vertical-align: top;"><button id="submitbtn" onclick="convert()">Submit</button></div>
 
-      </form></div>
+      <!-- </form> -->
+    </div>
+      <div id="result"></div>
   <footer>
       <p>&copy; 2023 MiniStudyMate </p>    
   </footer>
-
+  <script src="/pdfjs.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

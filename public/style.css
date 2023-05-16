@@ -102,7 +102,7 @@ div {
   padding: 10px;
 }
 
-input[type="submit"] {
+#submitbtn {
   background-color: #000;
   color: #fff;
   border: none;
@@ -113,7 +113,7 @@ input[type="submit"] {
   transition: all 0.2s;
 }
 
-input[type="submit"]:hover {
+#submitbtn:hover {
   background-color: #fff;
   border: #000 2px solid;
   font-size: smaller;
