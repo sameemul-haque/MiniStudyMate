@@ -33,7 +33,7 @@ nav a {
   top: 20px;
   right: 20px;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 1rem;
   border-style: solid;
   border-radius: 10px;
   padding: 5px;
@@ -42,20 +42,18 @@ nav a {
 nav a:hover {
   cursor: pointer;
   color: #1da1f2;
-  font-size: 12px;
+  font-size: 0.9rem;
   background-color: #000;
   transition: all 0.2s;
 }
 
 @media only screen and (max-width: 600px) {
   nav a {
-    font-size: 5px;
-    border-radius: 3px;
-    padding: 2px;
+    border-radius: 5px;
+    font-size: 0.5rem;
   }
-
-  nav a:hover {
-    font-size: 5px;
+  nav a:hover{
+    font-size: 0.3rem;
   }
 }
 

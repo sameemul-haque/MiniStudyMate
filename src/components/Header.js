@@ -1,10 +1,11 @@
+import { Icon } from '@iconify/react';
 function Header() {
     return (
       <header>
-        <h1><img src="images/icon.svg" alt="" />MiniStudyMate</h1>
+        <h1><Icon style={{fontSize:35}} icon="game-icons:graduate-cap" />MiniStudyMate</h1>
         <p>A Web-based Study Material Retrieval System</p>
         <nav>
-          <a href="login.html"><i className="fa-solid fa-right-from-bracket">Logout</i></a>
+          <a href="login.html"><Icon style={{fontSize:20}} icon="material-symbols:logout" /> LOGOUT</a>
         </nav>
       </header>
     );
