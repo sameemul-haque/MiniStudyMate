@@ -1,13 +1,14 @@
-import './App.css';
+import React from 'react';
+import Header from './components/Header';
+import Form from './components/Form';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-         A web based study material retrieval system
-        </p>
-      </header>
+    <div>
+      <Header />
+      <Form />
+      <Footer />
     </div>
   );
 }
