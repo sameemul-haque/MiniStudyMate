@@ -10,6 +10,7 @@ function App() {
       <Header />
       <br/><br/><br/><br/>
       <Form />
+      <br/><br/><br/><br/>
       <Footer />
     </div>
   );

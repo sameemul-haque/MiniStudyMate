@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Module from './Module';
+import Book from './Book';
 
 function Form() {
   const [showModule, setShowModule] = useState(false);
+  const [showBook, setShowBook] = useState(false);
 
   useEffect(() => {
     const university = document.getElementById('university');
@@ -23,6 +25,7 @@ function Form() {
     const handleFormSubmit = (event) => {
       event.preventDefault();
       setShowModule(true);
+      setShowBook(true);
     };
 
     // Attach event listener
@@ -39,7 +42,7 @@ function Form() {
   return (
     <div style={{ alignItems: 'flex-start' }}>
       <div className="input-group">
-        <select id="university" required>
+        <select id="university" style={{ verticalAlign: 'top' }} required>
           <option selected disabled value="">Select your University</option>
           <option value="ktu">APJ Abdul Kalam Technological University</option>
           <option value="mg">MG University</option>
@@ -57,6 +60,7 @@ function Form() {
       </div>
 
       {showModule && <Module />}
+      {showBook && <Book />}
     </div>
   );
 }

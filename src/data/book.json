@@ -1,0 +1,33 @@
+{
+    "books": {
+      "textbooks": [
+        {
+          "name": "Textbook 1",
+          "link": "https://example.com/textbook1"
+        },
+        {
+          "name": "Textbook 2",
+          "link": "https://example.com/textbook2"
+        },
+        {
+          "name": "Textbook 3",
+          "link": "https://example.com/textbook3"
+        }
+      ],
+      "referenceBooks": [
+        {
+          "name": "Reference Book 1",
+          "link": "https://example.com/referencebook1"
+        },
+        {
+          "name": "Reference Book 2",
+          "link": "https://example.com/referencebook2"
+        },
+        {
+          "name": "Reference Book 3",
+          "link": "https://example.com/referencebook3"
+        }
+      ]
+    }
+  }
+  
