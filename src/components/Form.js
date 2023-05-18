@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Module from './Module';
 
 function Form() {
+  const [showModule, setShowModule] = useState(false);
+
   useEffect(() => {
     const university = document.getElementById('university');
     const subjectCode = document.getElementById('subject-code');
@@ -17,12 +20,19 @@ function Form() {
       }
     };
 
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      setShowModule(true);
+    };
+
     // Attach event listener
     university.addEventListener('change', handleUniversityChange);
+    submitButton.addEventListener('click', handleFormSubmit);
 
-    // Clean up the event listener when the component unmounts
+    // Clean up the event listeners when the component unmounts
     return () => {
       university.removeEventListener('change', handleUniversityChange);
+      submitButton.removeEventListener('click', handleFormSubmit);
     };
   }, []); // Empty dependency array ensures the effect runs only once
 
@@ -45,6 +55,8 @@ function Form() {
       <div id="submit-button" style={{ display: 'none', verticalAlign: 'top' }}>
         <button id="submitbtn">Submit</button>
       </div>
+
+      {showModule && <Module />}
     </div>
   );
 }
