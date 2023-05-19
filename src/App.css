@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  background-color: black;
+  background-color: rgb(76, 73, 73);
   color: white;
   padding: 20px;
   text-align: center;
@@ -137,7 +137,7 @@ div {
 }
 
 footer {
-  background-color: black;
+  background-color: rgb(76, 73, 73);
   color: white;
   padding: 20px;
   text-align: center;
@@ -151,4 +151,17 @@ footer {
 
 footer p {
   color: #fff;
+}
+select{
+  border-radius: 10px;
+  background-color: rgb(146, 146, 146);
+  color: aliceblue;
+}
+#root{
+  background-color: rgb(124, 123, 123);
+  height: 1000px;
+}
+#subjcode{
+  color: aliceblue;
+  background-color: rgb(146, 146, 146);
 }
