@@ -23,7 +23,7 @@ header {
 }
 
 header h1 {
-  color: #0065fc;
+  color: #28dcdc;
   text-transform: uppercase;
 }
 
@@ -164,4 +164,7 @@ select{
 #subjcode{
   color: aliceblue;
   background-color: rgb(146, 146, 146);
+}
+#head-caption{
+  color: #95cfde;
 }
