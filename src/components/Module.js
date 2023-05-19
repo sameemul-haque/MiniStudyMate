@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import data from '../data/module.json';
-import '../css/module.css'
+import '../css/module.css';
 
 function Module() {
   const [selectedModule, setSelectedModule] = useState(null);
@@ -10,7 +10,7 @@ function Module() {
   };
 
   return (
-    <div>
+    <div className="module-container">
       {data.modules.map((module) => (
         <div key={module.id}>
           <button

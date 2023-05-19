@@ -1,8 +1,14 @@
-.module-button {
+.module-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .module-button {
     background-color: #0065fc;
     color: #fff;
     border: none;
     padding: 10px 20px;
+    margin-right: 10px;
     margin-bottom: 10px;
     font-size: 16px;
     cursor: pointer;
