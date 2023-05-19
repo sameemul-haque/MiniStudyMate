@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  background-color: rgb(76, 73, 73);
+  background-color:#402E77;
   color: white;
   padding: 20px;
   text-align: center;
@@ -45,6 +45,7 @@ nav a:hover {
   color: #1da1f2;
   font-size: 0.9rem;
   background-color: #000;
+  text-decoration: none;
   transition: all 0.2s;
 }
 
@@ -130,7 +131,7 @@ div {
 }
 
 footer {
-  background-color: rgb(76, 73, 73);
+  background-color:#402E77;
   color: white;
   padding: 20px;
   text-align: center;
