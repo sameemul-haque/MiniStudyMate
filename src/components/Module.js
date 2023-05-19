@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import data from '../data/module.json';
+import '../css/module.css'
 
 function Module() {
   const [selectedModule, setSelectedModule] = useState(null);

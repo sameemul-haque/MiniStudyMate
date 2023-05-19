@@ -58,19 +58,11 @@ nav a:hover {
   }
 }
 
-form {
-  padding: 15px;
-  color: #000;
-}
 #university {
   padding: 10px;
   font-size: 1rem;
-  border: 2px solid #666;
 }
-#university:focus,
-#university option[selected] {
-  border: 2px solid #000;
-}
+
 .input-group {
   position: relative;
 }
@@ -89,7 +81,8 @@ form {
 .user-label {
   position: absolute;
   left: 15px;
-  color: #000;
+  color: #fff;
+  font-weight: bolder;
   pointer-events: none;
   -webkit-transform: translateY(1rem);
   -ms-transform: translateY(1rem);
@@ -101,26 +94,27 @@ form {
 .input:focus,
 input:valid {
   outline: none;
-  border: 1.5px solid #0065fc;
+  border: 1.5px solid #402E77;
 }
 
 .input:focus ~ label,
 input:valid ~ label {
-  -webkit-transform: translateY(-50%) scale(0.8);
-  -ms-transform: translateY(-50%) scale(0.8);
-  transform: translateY(-50%) scale(0.8);
-  background-color: #f2f2f2;
+  -webkit-transform: translateY(-95%) scale(1);
+  -ms-transform: translateY(-95%) scale(1);
+  transform: translateY(-95%) scale(1);
   padding: 0 0.2em;
-  color: #0065fc;
+  color: #402E77;
+  font-weight: bolder;
 }
 div {
   padding: 10px;
 }
 
 #submitbtn {
-  background-color: #000;
-  color: #fff;
-  border: none;
+  background-color: #77FF74;
+  color: #000;
+  border: #000 2px solid;
+  font-weight: bolder;
   padding: 15px 20px;
   border-radius: 5px;
   font-size: 16px;
@@ -129,11 +123,9 @@ div {
 }
 
 #submitbtn:hover {
-  background-color: #fff;
+  background-color: #402E77;
   border: #000 2px solid;
-  font-size: smaller;
-  font-weight: bolder;
-  color: black;
+  color: #fff;
 }
 
 footer {
@@ -154,16 +146,12 @@ footer p {
 }
 select{
   border-radius: 10px;
-  background-color: rgb(146, 146, 146);
-  color: aliceblue;
-}
-#root{
-  background-color: rgb(124, 123, 123);
-  height: 1000px;
+  background-color: #402E77;
+  color: #fff;
 }
 #subjcode{
-  color: aliceblue;
-  background-color: rgb(146, 146, 146);
+  color: #fff;
+  background-color:#402E77;
 }
 #head-caption{
   color: #95cfde;

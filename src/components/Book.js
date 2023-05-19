@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import bookData from '../data/book.json';
+import '../css/book.css'
 
 function Book() {
   const [showTextbooks, setShowTextbooks] = useState(false);

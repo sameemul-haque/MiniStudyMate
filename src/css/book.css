@@ -1,0 +1,39 @@
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #0065fc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  button:hover {
+    background-color: #0052d9;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  a {
+    color: #0065fc;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

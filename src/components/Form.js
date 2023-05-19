@@ -41,6 +41,7 @@ function Form() {
 
   return (
     <div style={{ alignItems: 'flex-start' }}>
+      <br/>
       <div className="input-group">
         <select id="university" style={{ verticalAlign: 'top' }} required>
           <option selected disabled value="">Select your University</option>
@@ -49,7 +50,7 @@ function Form() {
           <option value="calicut">Calicut University</option>
         </select>
       </div>
-
+      <br/>
       <div id="subject-code" className="input-group" style={{ display: 'none', verticalAlign: 'top' }}>
         <input type="text" name="subjcode" id="subjcode" className="input" required />
         <label className="user-label">Subject Code</label>
