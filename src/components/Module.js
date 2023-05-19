@@ -11,7 +11,6 @@ function Module() {
 
   return (
     <div>
-      <h2>Modules</h2>
       {data.modules.map((module) => (
         <div key={module.id}>
           <button
