@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import bookData from '../data/book.json';
-import '../css/book.css'
+import '../css/book.css';
 
 function Book() {
   const [showTextbooks, setShowTextbooks] = useState(false);
@@ -15,7 +15,7 @@ function Book() {
   };
 
   return (
-    <div>
+    <div className="book-container">
       <div>
         <button onClick={handleToggleTextbooks}>
           {showTextbooks ? 'Textbooks' : 'Textbooks'}
