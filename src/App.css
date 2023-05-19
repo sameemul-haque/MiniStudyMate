@@ -116,13 +116,14 @@ div {
   border: #000 2px solid;
   font-weight: bolder;
   padding: 15px 20px;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 15px;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 #submitbtn:hover {
+  font-size: 0.9rem;
   background-color: #402E77;
   border: #000 2px solid;
   color: #fff;
