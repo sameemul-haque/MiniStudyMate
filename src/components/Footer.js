@@ -1,7 +1,7 @@
 function Footer() {
     return (
       <footer>
-        <p>&copy; 2023 MiniStudyMate</p>
+        <p>&copy; 2023 StudyMate</p>
       </footer>
     );
   }
