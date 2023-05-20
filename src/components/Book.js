@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import bookData from '../data/book.json';
-import '../css/book.css';
+import React, { useState } from "react";
+import bookData from "../data/book.json";
+import "../css/book.css";
 
 function Book() {
   const [showTextbooks, setShowTextbooks] = useState(false);
@@ -18,7 +18,7 @@ function Book() {
     <div className="book-container">
       <div>
         <button onClick={handleToggleTextbooks}>
-          {showTextbooks ? 'Textbooks' : 'Textbooks'}
+          {showTextbooks ? "Textbooks" : "Textbooks"}
         </button>
         {showTextbooks && (
           <div>
@@ -34,7 +34,7 @@ function Book() {
       </div>
       <div>
         <button onClick={handleToggleReferenceBooks}>
-          {showReferenceBooks ? 'Reference Books' : 'Reference Books'}
+          {showReferenceBooks ? "Reference Books" : "Reference Books"}
         </button>
         {showReferenceBooks && (
           <div>

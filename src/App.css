@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  background-color:#402E77;
+  background-color: #402e77;
   color: white;
   padding: 20px;
   text-align: center;
@@ -54,7 +54,7 @@ nav a:hover {
     border-radius: 5px;
     font-size: 0.5rem;
   }
-  nav a:hover{
+  nav a:hover {
     font-size: 0.3rem;
   }
 }
@@ -95,7 +95,7 @@ nav a:hover {
 .input:focus,
 input:valid {
   outline: none;
-  border: 1.5px solid #402E77;
+  border: 1.5px solid #402e77;
 }
 
 .input:focus ~ label,
@@ -104,7 +104,7 @@ input:valid ~ label {
   -ms-transform: translateY(-95%) scale(1);
   transform: translateY(-95%) scale(1);
   padding: 0 0.2em;
-  color: #402E77;
+  color: #402e77;
   font-weight: bolder;
 }
 div {
@@ -112,7 +112,7 @@ div {
 }
 
 #submitbtn {
-  background-color: #77FF74;
+  background-color: #77ff74;
   color: #000;
   border: #000 2px solid;
   font-weight: bolder;
@@ -125,13 +125,13 @@ div {
 
 #submitbtn:hover {
   font-size: 0.9rem;
-  background-color: #402E77;
+  background-color: #402e77;
   border: #000 2px solid;
   color: #fff;
 }
 
 footer {
-  background-color:#402E77;
+  background-color: #402e77;
   color: white;
   padding: 20px;
   text-align: center;
@@ -146,26 +146,26 @@ footer {
 footer p {
   color: #fff;
 }
-select{
+select {
   border-radius: 10px;
-  background-color: #402E77;
+  background-color: #402e77;
   color: #fff;
 }
-#subjcode{
+#subjcode {
   color: #fff;
-  background-color:#402E77;
+  background-color: #402e77;
 }
-#head-caption{
+#head-caption {
   color: #95cfde;
 }
-  /* autocomplete  */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
-  input:-webkit-autofill:active{
-      -webkit-box-shadow: 0 0 0 30px #402E77 inset !important;
-  }
-  /*Change text in autofill textbox*/
-  input:-webkit-autofill{
-    -webkit-text-fill-color: white !important;
-  }
+/* autocomplete  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #402e77 inset !important;
+}
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}

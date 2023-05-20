@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import data from '../data/module.json';
-import '../css/module.css';
+import React, { useState } from "react";
+import data from "../data/module.json";
+import "../css/module.css";
 
 function Module() {
   const [selectedModule, setSelectedModule] = useState(null);
@@ -16,7 +16,9 @@ function Module() {
           <button
             className="module-button"
             onClick={() => handleModuleClick(module)}
-            style={{ fontWeight: module === selectedModule ? 'bold' : 'normal' }}
+            style={{
+              fontWeight: module === selectedModule ? "bold" : "normal",
+            }}
           >
             {module.name}
           </button>

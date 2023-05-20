@@ -1,40 +1,39 @@
 .book-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  button {
-    background-color: #402E77;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  button:hover {
-    background-color: #0052d9;
-  }
-  
-  ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 10px;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
-  a {
-    color: #0065fc;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: #402e77;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #0052d9;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+a {
+  color: #0065fc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
