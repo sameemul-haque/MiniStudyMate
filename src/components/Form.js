@@ -26,6 +26,7 @@ function Form() {
     event.preventDefault();
     setShowModule(true);
     setShowBook(true);
+    console.log("Subject Code is: ", subjectCode);
   };
 
   return (
