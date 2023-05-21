@@ -3,74 +3,75 @@ import Module from "./Module";
 import Book from "./Book";
 
 function Form() {
+  const [university, setUniversity] = useState("");
+  const [subjectCode, setSubjectCode] = useState("");
   const [showModule, setShowModule] = useState(false);
   const [showBook, setShowBook] = useState(false);
 
   useEffect(() => {
-    const university = document.getElementById("university");
-    const subjectCode = document.getElementById("subject-code");
-    const submitButton = document.getElementById("submit-button");
+    if (university) {
+      setSubjectCode("");
+    }
+  }, [university]);
 
-    // Event listener callback function
-    const handleUniversityChange = () => {
-      if (university.value) {
-        subjectCode.style.display = "inline-block";
-        submitButton.style.display = "inline-block";
-      } else {
-        subjectCode.style.display = "none";
-        submitButton.style.display = "none";
-      }
-    };
+  const handleUniversityChange = (event) => {
+    setUniversity(event.target.value);
+  };
 
-    const handleFormSubmit = (event) => {
-      event.preventDefault();
-      setShowModule(true);
-      setShowBook(true);
-    };
+  const handleSubjectCodeChange = (event) => {
+    setSubjectCode(event.target.value);
+  };
 
-    // Attach event listener
-    university.addEventListener("change", handleUniversityChange);
-    submitButton.addEventListener("click", handleFormSubmit);
-
-    // Clean up the event listeners when the component unmounts
-    return () => {
-      university.removeEventListener("change", handleUniversityChange);
-      submitButton.removeEventListener("click", handleFormSubmit);
-    };
-  }, []); // Empty dependency array ensures the effect runs only once
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    setShowModule(true);
+    setShowBook(true);
+  };
 
   return (
     <div style={{ alignItems: "flex-start" }}>
       <br />
-      <div className="input-group">
-        <select id="university" style={{ verticalAlign: "top" }} required>
-          <option selected disabled value="">
-            Select your University
-          </option>
-          <option value="ktu">APJ Abdul Kalam Technological University</option>
-          <option value="mg">MG University</option>
-          <option value="calicut">Calicut University</option>
-        </select>
-      </div>
-      <br />
-      <div
-        id="subject-code"
-        className="input-group"
-        style={{ display: "none", verticalAlign: "top" }}
-      >
-        <input
-          type="text"
-          name="subjcode"
-          id="subjcode"
-          className="input"
-          required
-        />
-        <label className="user-label">Subject Code</label>
-      </div>
+      <form onSubmit={handleFormSubmit}>
+        <div className="input-group">
+          <select
+            value={university}
+            onChange={handleUniversityChange}
+            style={{ verticalAlign: "top" }}
+            required
+          >
+            <option disabled value="">
+              Select your University
+            </option>
+            <option value="ktu">
+              APJ Abdul Kalam Technological University
+            </option>
+            <option value="mg">MG University</option>
+            <option value="calicut">Calicut University</option>
+          </select>
+        </div>
+        <br />
+        {university && (
+          <div className="input-group">
+            <input
+              type="text"
+              name="subjcode"
+              value={subjectCode}
+              onChange={handleSubjectCodeChange}
+              className="input"
+              required
+            />
+            <label className="user-label">Subject Code</label>
+          </div>
+        )}
 
-      <div id="submit-button" style={{ display: "none", verticalAlign: "top" }}>
-        <button id="submitbtn">Submit</button>
-      </div>
+        {university && subjectCode && (
+          <div id="submit-button">
+            <button type="submit" id="submitbtn">
+              Submit
+            </button>
+          </div>
+        )}
+      </form>
 
       {showModule && <Module />}
       {showBook && <Book />}

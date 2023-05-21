@@ -59,11 +59,6 @@ nav a:hover {
   }
 }
 
-#university {
-  padding: 10px;
-  font-size: 1rem;
-}
-
 .input-group {
   position: relative;
 }
@@ -71,11 +66,11 @@ nav a:hover {
 .input {
   border: solid 1.5px #000;
   border-radius: 1rem;
-  background: none;
+  background-color: #402e77;
   padding: 1rem;
   font-size: 1rem;
-  color: #000;
-  -webkit-transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: bolder;
+  color: #fff;
   transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -85,10 +80,7 @@ nav a:hover {
   color: #fff;
   font-weight: bolder;
   pointer-events: none;
-  -webkit-transform: translateY(1rem);
-  -ms-transform: translateY(1rem);
   transform: translateY(1rem);
-  -webkit-transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -100,13 +92,12 @@ input:valid {
 
 .input:focus ~ label,
 input:valid ~ label {
-  -webkit-transform: translateY(-95%) scale(1);
-  -ms-transform: translateY(-95%) scale(1);
   transform: translateY(-95%) scale(1);
   padding: 0 0.2em;
   color: #402e77;
   font-weight: bolder;
 }
+
 div {
   padding: 10px;
 }
@@ -146,26 +137,33 @@ footer {
 footer p {
   color: #fff;
 }
+
 select {
   border-radius: 10px;
+  padding: 10px;
+  font-weight: bolder;
   background-color: #402e77;
   color: #fff;
 }
+
 #subjcode {
   color: #fff;
   background-color: #402e77;
 }
+
 #head-caption {
   color: #95cfde;
 }
-/* autocomplete  */
+
+/* Autocomplete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #402e77 inset !important;
 }
-/*Change text in autofill textbox*/
+
+/* Change text in autofill textbox */
 input:-webkit-autofill {
   -webkit-text-fill-color: white !important;
 }
