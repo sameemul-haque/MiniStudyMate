@@ -2,4 +2,4 @@
 
 ## [ministudymate.web.app](https://ministudymate.web.app)
 
-[last deployed commit d348f5](https://github.com/sameemul-haque/MiniStudyMate/tree/d348f529276544ffe65473942e7b6ef2eb73cdb8)
+[last deployed commit 18d6f7c](https://github.com/sameemul-haque/MiniStudyMate/tree/18d6f7c76a456b47cfcc5ff09e0532df327f554e)
