@@ -1,6 +1,7 @@
 .module-container {
-  display: flex;
   flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .module-button {
@@ -14,6 +15,16 @@
   font-size: 16px;
   cursor: pointer;
   transition: all 0.2s;
+  display: block;
+  text-align: left;
+}
+
+.module-button:hover {
+  background-color: #0052d9;
+}
+
+.module-wrapper {
+  margin-bottom: 10px;
 }
 
 .topic {
@@ -24,10 +35,6 @@
 
 .topic:hover {
   color: #333;
-}
-
-.module-button:hover {
-  background-color: #0052d9;
 }
 
 .topics {
@@ -68,10 +75,32 @@ a:hover {
   height: 9rem;
 }
 
+@media (max-width: 768px) {
+  .module-container {
+    flex-direction: column;
+  }
+
+  .module-button {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .topics {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .module-button {
+    width: 100%;
+    margin-right: 0;
+    padding: 10px 10px;
+  }
+}
+
 .video-thumbnail img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
 .video-info {

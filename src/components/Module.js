@@ -17,7 +17,9 @@ function Module() {
   return (
     <div className="module-container">
       {data.modules.map((module) => (
-        <div key={module.id}>
+        <div key={module.id} className="module-wrapper">
+          {" "}
+          {}
           <button
             className="module-button"
             onClick={() => handleModuleClick(module)}
@@ -42,10 +44,8 @@ function Module() {
                                 <img src={video.thumbnail} alt={video.title} />
                               </div>
                               <div className="video-info">
-                                <div className="video-title">{video.title}</div>
-                                <div className="video-views">
-                                  {video.views} views
-                                </div>
+                                <p>{video.title}</p>
+                                <span>{video.views} views</span>
                               </div>
                             </div>
                           </a>
