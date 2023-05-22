@@ -72,9 +72,8 @@ a:hover {
 }
 
 .video-thumbnail {
-  width: 640px;
-  height: 360px;
-  margin-right: 10px;
+  width: 16rem;
+  height: 9rem;
 }
 
 .video-thumbnail img {
@@ -85,7 +84,7 @@ a:hover {
 
 .video-details {
   display: flex;
-  align-items: center;
+  border: #f00 solid 5px;
 }
 
 .video-details a {
@@ -97,4 +96,5 @@ a:hover {
 .video-details span {
   margin-left: 10px;
   font-size: 0.8rem;
+  text-decoration: none;
 }

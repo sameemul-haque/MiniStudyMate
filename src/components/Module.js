@@ -36,13 +36,15 @@ function Module() {
                     <ul>
                       {topic.videos.map((video) => (
                         <li key={video.id}>
-                          <div className="video-thumbnail">
-                            <img src={video.thumbnail} alt={video.title} />
-                          </div>
-                          <div className="video-details">
-                            <a href={video.url}>{video.title}</a>
-                            <span>{video.views} views</span>
-                          </div>
+                          <a href={video.url}>
+                            <div className="video-details">
+                              {video.title}
+                              <span>{video.views} views</span>
+                              <div className="video-thumbnail">
+                                <img src={video.thumbnail} alt={video.title} />
+                              </div>
+                            </div>
+                          </a>
                         </li>
                       ))}
                     </ul>
