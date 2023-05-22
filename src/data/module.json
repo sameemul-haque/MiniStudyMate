@@ -7,7 +7,6 @@
         {
           "id": 1,
           "name": "Topic 1.1",
-          "description": "Description for Topic 1.1",
           "videos": [
             {
               "id": 1,
@@ -24,7 +23,6 @@
         {
           "id": 2,
           "name": "Topic 1.2",
-          "description": "Description for Topic 1.2",
           "videos": [
             {
               "id": 3,
@@ -47,7 +45,6 @@
         {
           "id": 3,
           "name": "Topic 2.1",
-          "description": "Description for Topic 2.1",
           "videos": [
             {
               "id": 5,
@@ -64,7 +61,6 @@
         {
           "id": 4,
           "name": "Topic 2.2",
-          "description": "Description for Topic 2.2",
           "videos": [
             {
               "id": 7,
@@ -87,7 +83,6 @@
         {
           "id": 5,
           "name": "Topic 3.1",
-          "description": "Description for Topic 3.1",
           "videos": [
             {
               "id": 9,
@@ -104,7 +99,6 @@
         {
           "id": 6,
           "name": "Topic 3.2",
-          "description": "Description for Topic 3.2",
           "videos": [
             {
               "id": 11,
@@ -127,7 +121,6 @@
         {
           "id": 7,
           "name": "Topic 4.1",
-          "description": "Description for Topic 4.1",
           "videos": [
             {
               "id": 13,
@@ -144,7 +137,6 @@
         {
           "id": 8,
           "name": "Topic 4.2",
-          "description": "Description for Topic 4.2",
           "videos": [
             {
               "id": 15,
@@ -167,7 +159,6 @@
         {
           "id": 9,
           "name": "Topic 5.1",
-          "description": "Description for Topic 5.1",
           "videos": [
             {
               "id": 17,
@@ -184,7 +175,6 @@
         {
           "id": 10,
           "name": "Topic 5.2",
-          "description": "Description for Topic 5.2",
           "videos": [
             {
               "id": 19,
