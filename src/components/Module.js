@@ -24,14 +24,19 @@ function Module() {
           </button>
           {module === selectedModule && (
             <div className="topics">
-              {/* <h3>Topics</h3> */}
               {module.topics.map((topic) => (
                 <div key={topic.id} className="topic">
                   <h4>{topic.name}</h4>
                   <ul>
                     {topic.videos.map((video) => (
                       <li key={video.id}>
-                        <a href={video.url}>{video.title}</a>
+                        <div className="video-thumbnail">
+                          <img src={video.thumbnail} alt={video.title} />
+                        </div>
+                        <div className="video-details">
+                          <a href={video.url}>{video.title}</a>
+                          <span>{video.views} views</span>
+                        </div>
                       </li>
                     ))}
                   </ul>
