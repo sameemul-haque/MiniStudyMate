@@ -12,13 +12,15 @@
               "id": 1,
               "title": "Introduction to Data Structures",
               "url": "https://youtu.be/xLetJpcjHS0",
-              "thumbnail": "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg"
+              "thumbnail": "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
+              "views": "933K"
             },
             {
               "id": 2,
               "title": "Data Structures and Algorithms for Beginners",
               "url": "https://youtu.be/BBpAmxU_NQo",
-              "thumbnail": "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg"
+              "thumbnail": "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
+              "views": "1.3M"
             }
           ]
         },
@@ -30,13 +32,15 @@
               "id": 3,
               "title": "Video 1.2.1",
               "url": "https://example.com/video1.2.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 4,
               "title": "Video 1.2.2",
               "url": "https://example.com/video1.2.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         }
@@ -54,13 +58,15 @@
               "id": 5,
               "title": "Video 2.1.1",
               "url": "https://example.com/video2.1.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 6,
               "title": "Video 2.1.2",
               "url": "https://example.com/video2.1.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         },
@@ -72,13 +78,15 @@
               "id": 7,
               "title": "Video 2.2.1",
               "url": "https://example.com/video2.2.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 8,
               "title": "Video 2.2.2",
               "url": "https://example.com/video2.2.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         }
@@ -96,13 +104,15 @@
               "id": 9,
               "title": "Video 3.1.1",
               "url": "https://example.com/video3.1.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 10,
               "title": "Video 3.1.2",
               "url": "https://example.com/video3.1.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         },
@@ -114,13 +124,15 @@
               "id": 11,
               "title": "Video 3.2.1",
               "url": "https://example.com/video3.2.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 12,
               "title": "Video 3.2.2",
               "url": "https://example.com/video3.2.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         }
@@ -138,13 +150,15 @@
               "id": 13,
               "title": "Video 4.1.1",
               "url": "https://example.com/video4.1.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 14,
               "title": "Video 4.1.2",
               "url": "https://example.com/video4.1.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         },
@@ -156,13 +170,15 @@
               "id": 15,
               "title": "Video 4.2.1",
               "url": "https://example.com/video4.2.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 16,
               "title": "Video 4.2.2",
               "url": "https://example.com/video4.2.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         }
@@ -180,13 +196,15 @@
               "id": 17,
               "title": "Video 5.1.1",
               "url": "https://example.com/video5.1.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 18,
               "title": "Video 5.1.2",
               "url": "https://example.com/video5.1.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         },
@@ -198,13 +216,15 @@
               "id": 19,
               "title": "Video 5.2.1",
               "url": "https://example.com/video5.2.1",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             },
             {
               "id": 20,
               "title": "Video 5.2.2",
               "url": "https://example.com/video5.2.2",
-              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg"
+              "thumbnail": " https://d1csarkz8obe9u.cloudfront.net/posterpreviews/youtube-thumbnail-template-design-d45e855a31739ec1f58b2d0ffb7013df_screen.jpg",
+              "views": "00"
             }
           ]
         }
