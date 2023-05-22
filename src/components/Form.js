@@ -26,7 +26,12 @@ function Form() {
     event.preventDefault();
     setShowModule(true);
     setShowBook(true);
-    console.log("Subject Code is: ", subjectCode);
+    console.log(
+      "Subject Code is: ",
+      subjectCode,
+      "\nSelected university is: ",
+      university
+    );
   };
 
   return (
