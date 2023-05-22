@@ -38,10 +38,14 @@ function Module() {
                         <li key={video.id}>
                           <a href={video.url}>
                             <div className="video-details">
-                              {video.title}
-                              <span>{video.views} views</span>
                               <div className="video-thumbnail">
                                 <img src={video.thumbnail} alt={video.title} />
+                              </div>
+                              <div className="video-info">
+                                <div className="video-title">{video.title}</div>
+                                <div className="video-views">
+                                  {video.views} views
+                                </div>
                               </div>
                             </div>
                           </a>
