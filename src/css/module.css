@@ -16,6 +16,15 @@
   transition: all 0.2s;
 }
 
+.topic {
+  color: #0065fc;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.topic:hover {
+  color: #333;
+}
+
 .module-button:hover {
   background-color: #0052d9;
 }
