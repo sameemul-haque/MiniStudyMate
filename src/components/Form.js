@@ -20,7 +20,8 @@ function Form() {
   };
 
   const handleSubjectCodeChange = (event) => {
-    setSubjectCode(event.target.value);
+    const code = event.target.value.toUpperCase();
+    setSubjectCode(code);
   };
 
   const handleFormSubmit = async (event) => {
