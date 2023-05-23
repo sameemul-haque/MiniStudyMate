@@ -56,6 +56,9 @@ function Form() {
       });
     } catch (error) {
       console.error("Error while extracting text:", error);
+      alert(
+        "An error occurred while processing the syllabus pdf. Please try again later."
+      );
     }
   };
 
