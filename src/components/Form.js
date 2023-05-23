@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Module from "./Module";
 import Book from "./Book";
+import * as pdfjsLib from "pdfjs-dist";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -22,16 +23,40 @@ function Form() {
     setSubjectCode(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     setShowModule(true);
     setShowBook(true);
-    console.log(
-      "Subject Code is: ",
-      subjectCode,
-      "\nSelected university is: ",
-      university
-    );
+    console.log("Subject Code is:", subjectCode);
+    console.log("Selected university is:", university);
+
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js`;
+
+    const pdfPath = `${process.env.PUBLIC_URL}/pdfs/${subjectCode}.pdf`;
+
+    try {
+      const loadingTask = pdfjsLib.getDocument(pdfPath);
+      const pdf = await loadingTask.promise;
+      const numPages = pdf.numPages;
+      const textPromises = [];
+
+      for (let i = 1; i <= numPages; i++) {
+        textPromises.push(
+          pdf.getPage(i).then((page) => {
+            return page.getTextContent().then((textContent) => {
+              return textContent.items.map((item) => item.str).join(" ");
+            });
+          })
+        );
+      }
+
+      Promise.all(textPromises).then((pageTexts) => {
+        const extractedText = pageTexts.join("\n");
+        console.log("Extracted Text:", extractedText);
+      });
+    } catch (error) {
+      console.error("Error while extracting text:", error);
+    }
   };
 
   return (
