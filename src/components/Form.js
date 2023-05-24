@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Module from "./Module";
 import Book from "./Book";
 import * as pdfjsLib from "pdfjs-dist";
+import { storage } from "../firebase-config";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -33,10 +34,11 @@ function Form() {
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js`;
 
-    const pdfPath = `${process.env.PUBLIC_URL}/pdfs/${subjectCode}.pdf`;
+    const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
 
     try {
-      const loadingTask = pdfjsLib.getDocument(pdfPath);
+      const url = await pdfPath.getDownloadURL();
+      const loadingTask = pdfjsLib.getDocument(url);
       const pdf = await loadingTask.promise;
       const numPages = pdf.numPages;
       const textPromises = [];
