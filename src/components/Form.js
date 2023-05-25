@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Module from "./Module";
 import Book from "./Book";
 import * as pdfjsLib from "pdfjs-dist";
@@ -10,12 +10,30 @@ function Form() {
   const [showModule, setShowModule] = useState(false);
   const [showBook, setShowBook] = useState(false);
   const [errorOccurred, setErrorOccurred] = useState(false);
+  const [file, setFile] = useState(null);
+  const [uploading, setUploading] = useState(false);
+  const [pdfExists, setPdfExists] = useState(false);
 
   useEffect(() => {
     if (university) {
       setSubjectCode("");
     }
   }, [university]);
+
+  useEffect(() => {
+    const checkPdfExists = async () => {
+      const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+
+      try {
+        await pdfPath.getDownloadURL();
+        setPdfExists(true);
+      } catch (error) {
+        setPdfExists(false);
+      }
+    };
+
+    checkPdfExists();
+  }, [subjectCode]);
 
   const handleUniversityChange = (event) => {
     setUniversity(event.target.value);
@@ -26,6 +44,11 @@ function Form() {
     setSubjectCode(code);
   };
 
+  const handleFileChange = (event) => {
+    const uploadedFile = event.target.files[0];
+    setFile(uploadedFile);
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     setShowModule(true);
@@ -33,7 +56,8 @@ function Form() {
     console.log("Subject Code is:", subjectCode);
     console.log("Selected university is:", university);
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js`;
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js";
 
     const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
 
@@ -59,15 +83,33 @@ function Form() {
         console.log("Extracted Text:", extractedText);
       });
     } catch (error) {
-      console.error("Error while extracting text:", error);
+      console.error("Error:", error);
       setErrorOccurred(true);
-      alert("An error occurred while processing the syllabus pdf. Please try again later.");
+      alert(
+        "An error occurred while processing the syllabus pdf. Please Upload PDF."
+      );
     }
   };
 
-  const handleRetryButtonClick = () => {
-    setErrorOccurred(false);
-    handleFormSubmit();
+  const handleFileUpload = async () => {
+    if (file) {
+      setUploading(true);
+      const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+
+      try {
+        await pdfPath.put(file);
+        console.log("File uploaded successfully!");
+        alert("File uploaded successfully");
+        setPdfExists(true);
+      } catch (error) {
+        console.error("Error while uploading file:", error);
+        alert(
+          "An error occurred while uploading the file. Please try again later."
+        );
+      } finally {
+        setUploading(false);
+      }
+    }
   };
 
   return (
@@ -116,8 +158,14 @@ function Form() {
       </form>
 
       {errorOccurred && (
-        <div id="error-button">
-          <button onClick={handleRetryButtonClick}>Upload pdf</button>
+        <div className="file-input-container">
+          <input
+            type="file"
+            accept="application/pdf"
+            onChange={handleFileChange}
+            style={{ display: "hidden" }}
+          />
+          <button onClick={handleFileUpload}>Upload</button>
         </div>
       )}
 
