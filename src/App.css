@@ -200,6 +200,18 @@ input:-webkit-autofill {
 }
 
 .syllabus-label {
-  background-color: #000;
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  margin-right: 5px;
+  white-space: nowrap;
   cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.syllabus-label:hover {
+  border: 2px solid #000;
+  background-color: #bbb;
 }
