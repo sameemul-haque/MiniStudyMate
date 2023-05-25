@@ -9,6 +9,7 @@ function Form() {
   const [subjectCode, setSubjectCode] = useState("");
   const [showModule, setShowModule] = useState(false);
   const [showBook, setShowBook] = useState(false);
+  const [errorOccurred, setErrorOccurred] = useState(false);
 
   useEffect(() => {
     if (university) {
@@ -59,10 +60,14 @@ function Form() {
       });
     } catch (error) {
       console.error("Error while extracting text:", error);
-      alert(
-        "An error occurred while processing the syllabus pdf. Please try again later."
-      );
+      setErrorOccurred(true);
+      alert("An error occurred while processing the syllabus pdf. Please try again later.");
     }
+  };
+
+  const handleRetryButtonClick = () => {
+    setErrorOccurred(false);
+    handleFormSubmit();
   };
 
   return (
@@ -109,6 +114,12 @@ function Form() {
           </div>
         )}
       </form>
+
+      {errorOccurred && (
+        <div id="error-button">
+          <button onClick={handleRetryButtonClick}>Upload pdf</button>
+        </div>
+      )}
 
       {showModule && <Module />}
       {showBook && <Book />}
