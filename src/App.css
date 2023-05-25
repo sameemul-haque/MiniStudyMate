@@ -198,3 +198,8 @@ input:-webkit-autofill {
 ::-webkit-scrollbar-thumb {
   background: #007bff;
 }
+
+.syllabus-label {
+  background-color: #000;
+  cursor: pointer;
+}

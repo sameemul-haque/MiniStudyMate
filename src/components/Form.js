@@ -163,11 +163,13 @@ function Form() {
             type="file"
             accept="application/pdf"
             onChange={handleFileChange}
-            id="lbl"
+            id="syllabus-upload"
             style={{ display: "none" }}
           />
 
-          <label for="lbl">Select your syllabus</label>
+          <label for="syllabus-upload" className="syllabus-label">
+            Select your syllabus
+          </label>
           <button onClick={handleFileUpload}>Upload</button>
         </div>
       )}
