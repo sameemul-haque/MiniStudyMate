@@ -61,6 +61,7 @@ function Form() {
     } catch (error) {
       console.error("Error while extracting text:", error);
       setErrorOccurred(true);
+      alert("An error occurred while processing the syllabus pdf. Please try again later.");
     }
   };
 
