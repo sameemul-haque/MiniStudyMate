@@ -3,6 +3,7 @@ import Module from "./Module";
 import Book from "./Book";
 import * as pdfjsLib from "pdfjs-dist";
 import { storage } from "../firebase-config";
+import swal from "sweetalert";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -85,9 +86,7 @@ function Form() {
     } catch (error) {
       console.error("Error:", error);
       setErrorOccurred(true);
-      alert(
-        "An error occurred while processing the syllabus pdf. Please Upload PDF."
-      );
+      swal("The PDF is not available in our database.", "Please upload PDF.");
     }
   };
 
@@ -99,7 +98,7 @@ function Form() {
       try {
         await pdfPath.put(file);
         console.log("File uploaded successfully!");
-        alert("File uploaded successfully");
+        swal("File uploaded successfully", "", "success");
         setPdfExists(true);
       } catch (error) {
         console.error("Error while uploading file:", error);
@@ -167,7 +166,7 @@ function Form() {
             style={{ display: "none" }}
           />
 
-          <label for="syllabus-upload" className="syllabus-label">
+          <label htmlFor="syllabus-upload" className="syllabus-label">
             Select your syllabus
           </label>
           <button onClick={handleFileUpload}>Upload</button>
