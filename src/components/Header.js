@@ -17,12 +17,19 @@ function Header() {
 }
 
 function SignOut() {
+  const userEmail = auth.currentUser?.email;
   return (
     auth.currentUser && (
-      <button className="sign-out" onClick={() => auth.signOut()}>
-        <Icon style={{ fontSize: 20 }} icon="material-symbols:logout" />
-        {" SIGN OUT"}
-      </button>
+      <div className="user-info">
+        <span>
+          <Icon style={{ fontSize: 10 }} icon="logos:google-gmail" />{" "}
+          {userEmail}
+        </span>
+        <button className="sign-out" onClick={() => auth.signOut()}>
+          <Icon style={{ fontSize: 20 }} icon="material-symbols:logout" />
+          {" SIGN OUT"}
+        </button>
+      </div>
     )
   );
 }

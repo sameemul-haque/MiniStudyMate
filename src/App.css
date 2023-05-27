@@ -15,7 +15,7 @@ header {
   text-align: center;
   position: fixed;
   width: 100%;
-  top: 0;
+  top: 0px;
   right: 0;
   left: 0;
   z-index: 1;
@@ -26,43 +26,13 @@ header h1 {
   text-transform: uppercase;
 }
 
-nav a {
-  color: white;
-  background-color: #000;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  text-decoration: none;
-  font-size: 1rem;
-  border-style: solid;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-nav a:hover {
-  cursor: pointer;
-  color: #1da1f2;
-  font-size: 0.9rem;
-  background-color: #000;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-
 .logout-wrapper {
   position: absolute;
-  top: 0px;
+  top: -7px;
   right: 20px;
 }
 
 @media only screen and (max-width: 600px) {
-  nav a {
-    border-radius: 5px;
-    font-size: 0.5rem;
-  }
-  nav a:hover {
-    font-size: 0.3rem;
-  }
-
   .logout-wrapper {
     top: 0;
     right: 20px;
@@ -264,4 +234,21 @@ input:-webkit-autofill {
   background-color: #ffffff;
   color: #ff0000;
   transition: all 0.2s;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.user-info span {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: small;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #000;
 }
