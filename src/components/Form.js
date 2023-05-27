@@ -3,6 +3,7 @@ import Module from "./Module";
 import Book from "./Book";
 import * as pdfjsLib from "pdfjs-dist";
 import { storage } from "../firebase-config";
+import { auth } from "../firebase-config";
 import swal from "sweetalert";
 
 function Form() {
@@ -93,7 +94,8 @@ function Form() {
   const handleFileUpload = async () => {
     if (file) {
       setUploading(true);
-      const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+      const userId = auth.currentUser.uid;
+      const pdfPath = storage.ref().child(`pdfs/${userId}/${subjectCode}.pdf`);
 
       try {
         await pdfPath.put(file);
@@ -102,8 +104,10 @@ function Form() {
         setPdfExists(true);
       } catch (error) {
         console.error("Error while uploading file:", error);
-        alert(
-          "An error occurred while uploading the file. Please try again later."
+        swal(
+          "An error occurred while uploading the file. Please try again later.",
+          "",
+          "error"
         );
       } finally {
         setUploading(false);
