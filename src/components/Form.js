@@ -24,10 +24,13 @@ function Form() {
 
   useEffect(() => {
     const checkPdfExists = async () => {
-      const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+      const userId = auth.currentUser.uid;
+      const pdfPath1 = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+      const pdfPath2 = storage.ref().child(`pdfs/${userId}/${subjectCode}.pdf`);
 
       try {
-        await pdfPath.getDownloadURL();
+        await pdfPath1.getDownloadURL();
+        await pdfPath2.getDownloadURL();
         setPdfExists(true);
       } catch (error) {
         setPdfExists(false);
