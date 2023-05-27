@@ -82,8 +82,12 @@ function Form() {
         pdf = await loadingTask2.promise;
       } catch (error) {
         console.error("Error:", error);
+        swal(
+          "The PDF is not available in our database.",
+          "Please upload PDF.",
+          "error"
+        );
         setErrorOccurred(true);
-        swal("The PDF is not available in our database.", "Please upload PDF.");
         return;
       }
     }
