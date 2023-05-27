@@ -64,34 +64,47 @@ function Form() {
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js";
 
-    const pdfPath = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+    const pdfPath1 = storage.ref().child(`pdfs/${subjectCode}.pdf`);
+    const pdfPath2 = storage
+      .ref()
+      .child(`pdfs/${auth.currentUser.uid}/${subjectCode}.pdf`);
+
+    let pdf;
 
     try {
-      const url = await pdfPath.getDownloadURL();
-      const loadingTask = pdfjsLib.getDocument(url);
-      const pdf = await loadingTask.promise;
-      const numPages = pdf.numPages;
-      const textPromises = [];
-
-      for (let i = 1; i <= numPages; i++) {
-        textPromises.push(
-          pdf.getPage(i).then((page) => {
-            return page.getTextContent().then((textContent) => {
-              return textContent.items.map((item) => item.str).join(" ");
-            });
-          })
-        );
-      }
-
-      Promise.all(textPromises).then((pageTexts) => {
-        const extractedText = pageTexts.join("\n");
-        console.log("Extracted Text:", extractedText);
-      });
+      const url1 = await pdfPath1.getDownloadURL();
+      const loadingTask1 = pdfjsLib.getDocument(url1);
+      pdf = await loadingTask1.promise;
     } catch (error) {
-      console.error("Error:", error);
-      setErrorOccurred(true);
-      swal("The PDF is not available in our database.", "Please upload PDF.");
+      try {
+        const url2 = await pdfPath2.getDownloadURL();
+        const loadingTask2 = pdfjsLib.getDocument(url2);
+        pdf = await loadingTask2.promise;
+      } catch (error) {
+        console.error("Error:", error);
+        setErrorOccurred(true);
+        swal("The PDF is not available in our database.", "Please upload PDF.");
+        return;
+      }
     }
+
+    const numPages = pdf.numPages;
+    const textPromises = [];
+
+    for (let i = 1; i <= numPages; i++) {
+      textPromises.push(
+        pdf.getPage(i).then((page) => {
+          return page.getTextContent().then((textContent) => {
+            return textContent.items.map((item) => item.str).join(" ");
+          });
+        })
+      );
+    }
+
+    Promise.all(textPromises).then((pageTexts) => {
+      const extractedText = pageTexts.join("\n");
+      console.log("Extracted Text:", extractedText);
+    });
   };
 
   const handleFileUpload = async () => {
