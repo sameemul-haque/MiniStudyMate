@@ -21,22 +21,20 @@ function App() {
       {user ? (
         <div>
           <Form />
-          <br />
-          <br />
-          <br />
-          <br />
-          <Footer />
         </div>
       ) : (
         <div>
           {" "}
           <br />
           <br />
-          <br />
-          <br />
           <SignIn />
         </div>
       )}
+      <br />
+      <br />
+      <br />
+      <br />
+      <Footer />
     </div>
   );
 }
