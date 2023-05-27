@@ -21,7 +21,7 @@ function SignOut() {
     auth.currentUser && (
       <button className="sign-out" onClick={() => auth.signOut()}>
         <Icon style={{ fontSize: 20 }} icon="material-symbols:logout" />
-        {"Sign Out"}
+        {" SIGN OUT"}
       </button>
     )
   );

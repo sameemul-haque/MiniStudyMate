@@ -3,40 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-#signin[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-#signin[type="submit"]:is(:hover, :focus) {
-  background-color: #54a7ff;
-  transition: all 0.2s;
-  color: #000;
-}
-.sign-in {
-  background-color: #fff;
-  color: #000;
-  font-size: 1rem;
-  font-weight: bolder;
-  border: #000 solid 0.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.sign-in:is(:hover, :focus) {
-  border: #fff solid 0.2rem;
-  font-size: 1.1rem;
-  transition: all 0.2s;
-  background-color: #000;
-  color: #fff;
-}
 body {
   margin: 0;
   background-color: #f2f2f2;
@@ -247,4 +213,53 @@ input:-webkit-autofill {
 .syllabus-label:hover {
   border: 2px solid #000;
   background-color: #bbb;
+}
+
+#signin[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#signin[type="submit"]:is(:hover, :focus) {
+  background-color: #54a7ff;
+  transition: all 0.2s;
+  color: #000;
+}
+.sign-in {
+  background-color: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bolder;
+  border: #000 solid 0.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.sign-in:is(:hover, :focus) {
+  border: #fff solid 0.2rem;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  background-color: #000;
+  color: #fff;
+}
+.sign-out {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.sign-out:is(:hover, :focus) {
+  background-color: #d86b76;
+  color: #000;
+  transition: all 0.2s;
 }
