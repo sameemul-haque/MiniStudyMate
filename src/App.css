@@ -253,13 +253,15 @@ input:-webkit-autofill {
   background-color: #dc3545;
   color: #fff;
   border: none;
+  font-weight: bolder;
+  border: #000 solid 0.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   cursor: pointer;
 }
 
 .sign-out:is(:hover, :focus) {
-  background-color: #d86b76;
-  color: #000;
+  background-color: #ffffff;
+  color: #ff0000;
   transition: all 0.2s;
 }
