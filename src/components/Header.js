@@ -4,12 +4,12 @@ function Header() {
   return (
     <header>
       <div className="logout-wrapper">
-        <nav>
+        {/* <nav>
           <a href="login.html">
             <Icon style={{ fontSize: 20 }} icon="material-symbols:logout" />{" "}
             LOGOUT
           </a>
-        </nav>
+        </nav> */}
       </div>
       <h1>
         <Icon style={{ fontSize: 35 }} icon="game-icons:graduate-cap" />

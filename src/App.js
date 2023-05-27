@@ -2,9 +2,15 @@ import React from "react";
 import Header from "./components/Header";
 import Form from "./components/Form";
 import Footer from "./components/Footer";
+import firebase from "firebase/compat/app";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase-config";
 import "./App.css";
+import { Icon } from "@iconify/react";
 
 function App() {
+  const [user] = useAuthState(auth);
+
   return (
     <div>
       <Header />
@@ -12,13 +18,47 @@ function App() {
       <br />
       <br />
       <br />
-      <Form />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Footer />
+      {user ? (
+        <div>
+          <Form />
+          <br />
+          <br />
+          <br />
+          <br />
+          <Footer />
+        </div>
+      ) : (
+        <div>
+          {" "}
+          <br />
+          <br />
+          <br />
+          <br />
+          <SignIn />
+        </div>
+      )}
     </div>
+  );
+}
+
+function SignIn() {
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  };
+
+  return (
+    <>
+      <button
+        className="sign-in"
+        id="signin"
+        style={{ position: "relative", margin: "0 auto" }}
+        onClick={signInWithGoogle}
+      >
+        <Icon style={{ fontSize: 20 }} icon="flat-color-icons:google" />{" "}
+        &nbsp;Sign in with Google
+      </button>
+    </>
   );
 }
 
