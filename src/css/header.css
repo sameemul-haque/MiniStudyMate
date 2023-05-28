@@ -39,12 +39,7 @@ header h1 {
 }
 
 .sign-out {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
   font-weight: bolder;
-  border: #000 solid 0.2rem;
-  border-radius: 1rem;
   width: 100%;
   cursor: pointer;
 }
@@ -60,7 +55,7 @@ header h1 {
   align-items: center;
   flex-direction: column;
   margin-bottom: 10px;
-  background-color: #222;
+  background-color: #323232;
   border-radius: 1rem;
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);

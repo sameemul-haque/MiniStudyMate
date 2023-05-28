@@ -42,10 +42,11 @@ function SignOut() {
               <Icon style={{ fontSize: 10 }} icon="logos:google-gmail" />{" "}
               {userEmail}
             </span>
-            <button className="sign-out" onClick={handleSignOut}>
-              <Icon style={{ fontSize: 20 }} icon="material-symbols:logout" />
-              {" SIGN OUT"}
-            </button>
+            <span className="sign-out" onClick={handleSignOut}>
+              <Icon style={{ fontSize: 15 }} icon="uil:signout" />
+              {"  "}
+              {"SIGN OUT"}
+            </span>
           </div>
         )}
       </div>
