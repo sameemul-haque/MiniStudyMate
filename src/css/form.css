@@ -79,10 +79,6 @@ select {
   background-color: #402e77;
 }
 
-#head-caption {
-  color: #95cfde;
-}
-
 /* Autocomplete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

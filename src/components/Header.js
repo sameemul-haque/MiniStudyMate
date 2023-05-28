@@ -20,10 +20,12 @@ function Header() {
 
 function SignOut() {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [rotateDownIcon, setRotateDownIcon] = useState(false);
   const userEmail = auth.currentUser?.email;
 
   const handleDropdownToggle = () => {
     setShowDropdown(!showDropdown);
+    setRotateDownIcon(!rotateDownIcon);
   };
 
   const handleSignOut = () => {
@@ -35,15 +37,23 @@ function SignOut() {
       <div>
         <div className="user-icon" onClick={handleDropdownToggle}>
           <Icon style={{ fontSize: 30 }} icon="line-md:account" />
+          <Icon
+            className={rotateDownIcon ? "down-icon rotated" : "down-icon"}
+            style={{
+              position: "fixed",
+              marginTop: 15,
+              fontSize: 15,
+            }}
+            icon="mingcute:down-fill"
+          />
         </div>
         {showDropdown && (
           <div className="user-info">
             <span>
-              <Icon style={{ fontSize: 10 }} icon="logos:google-gmail" />{" "}
-              {userEmail}
+              <Icon style={{ fontSize: 20 }} icon="mdi:gmail" /> {userEmail}
             </span>
             <span className="sign-out" onClick={handleSignOut}>
-              <Icon style={{ fontSize: 15 }} icon="uil:signout" />
+              <Icon style={{ fontSize: 20 }} icon="mdi:logout" />
               {"  "}
               {"SIGN OUT"}
             </span>

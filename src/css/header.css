@@ -2,7 +2,6 @@ header {
   background-color: #402e77;
   color: white;
   padding: 20px;
-  text-align: center;
   position: fixed;
   width: 100%;
   top: 0px;
@@ -13,7 +12,13 @@ header {
 
 header h1 {
   color: #28dcdc;
+  text-align: center;
   text-transform: uppercase;
+}
+
+#head-caption {
+  text-align: center;
+  color: #95cfde;
 }
 
 .logout-wrapper {
@@ -26,11 +31,21 @@ header h1 {
   border: #ffffff 0.15rem solid;
   border-radius: 1rem;
   cursor: pointer;
+  width: 3.7rem;
+  height: 3.7rem;
+  transition: all 0.2s;
 }
+
+.user-icon:is(:hover, :focus) {
+  color: #000;
+  border: #000 0.15rem solid;
+  background-color: #fff;
+}
+
 @media only screen and (max-width: 600px) {
   .logout-wrapper {
     top: 0;
-    right: 20px;
+    right: 0;
   }
 
   header h1 {
@@ -52,7 +67,6 @@ header h1 {
 
 .user-info {
   display: flex;
-  align-items: center;
   flex-direction: column;
   margin-bottom: 10px;
   background-color: #323232;
@@ -64,11 +78,18 @@ header h1 {
 .user-info span {
   margin-bottom: 5px;
   font-weight: bold;
-  font-size: small;
   color: #fff;
   padding: 0.5rem;
   width: 100%;
   border: #000 solid 0.2rem;
   border-radius: 1rem;
   background-color: #000;
+}
+
+.down-icon {
+  transition: transform 0.3s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
 }
