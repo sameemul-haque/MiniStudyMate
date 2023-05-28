@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import { auth } from "../firebase-config";
+import "../css/header.css";
 
 function Header() {
   return (
