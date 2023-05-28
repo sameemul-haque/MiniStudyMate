@@ -76,23 +76,6 @@ div {
   color: #fff;
 }
 
-footer {
-  background-color: #402e77;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
-}
-
-footer p {
-  color: #fff;
-}
-
 select {
   border-radius: 10px;
   padding: 10px;
