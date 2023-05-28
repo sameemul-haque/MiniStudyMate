@@ -5,6 +5,7 @@ import * as pdfjsLib from "pdfjs-dist";
 import { storage } from "../firebase-config";
 import { auth } from "../firebase-config";
 import swal from "sweetalert";
+import "../css/form.css";
 
 function Form() {
   const [university, setUniversity] = useState("");

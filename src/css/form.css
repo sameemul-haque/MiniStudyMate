@@ -1,0 +1,114 @@
+@media only screen and (max-width: 600px) {
+  form {
+    margin-top: 60px;
+  }
+}
+
+.input-group {
+  position: relative;
+}
+
+.input {
+  border: solid 1.5px #000;
+  border-radius: 1rem;
+  background-color: #402e77;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #fff;
+  transition: border 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.user-label {
+  position: absolute;
+  left: 15px;
+  color: #fff;
+  font-weight: bolder;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input:focus,
+input:valid {
+  outline: none;
+  border: 1.5px solid #402e77;
+}
+
+.input:focus ~ label,
+input:valid ~ label {
+  transform: translateY(-95%) scale(1);
+  padding: 0 0.2em;
+  color: #402e77;
+  font-weight: bolder;
+}
+
+div {
+  padding: 10px;
+}
+
+#submitbtn {
+  background-color: #77ff74;
+  color: #000;
+  border: #000 2px solid;
+  font-weight: bolder;
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#submitbtn:hover {
+  font-size: 0.9rem;
+  background-color: #402e77;
+  border: #000 2px solid;
+  color: #fff;
+}
+
+select {
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bolder;
+  background-color: #402e77;
+  color: #fff;
+}
+
+#subjcode {
+  color: #fff;
+  background-color: #402e77;
+}
+
+#head-caption {
+  color: #95cfde;
+}
+
+/* Autocomplete */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #402e77 inset !important;
+}
+
+/* Change text in autofill textbox */
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+
+.syllabus-label {
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 3px;
+  padding: 5px;
+  outline: none;
+  margin-right: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.syllabus-label:hover {
+  border: 2px solid #000;
+  background-color: #bbb;
+}
