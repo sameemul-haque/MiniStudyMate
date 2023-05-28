@@ -6,7 +6,7 @@ import "../css/header.css";
 function Header() {
   return (
     <header>
-      <div className="logout-wrapper">
+      <div>
         <SignOut />
       </div>
       <h1>
@@ -34,7 +34,7 @@ function SignOut() {
 
   return (
     auth.currentUser && (
-      <div>
+      <div className="logout-wrapper">
         <div className="user-icon" onClick={handleDropdownToggle}>
           <Icon style={{ fontSize: 30 }} icon="line-md:account" />
           <Icon
@@ -50,7 +50,8 @@ function SignOut() {
         {showDropdown && (
           <div className="user-info">
             <span>
-              <Icon style={{ fontSize: 20 }} icon="mdi:gmail" /> {userEmail}
+              <Icon style={{ fontSize: 20 }} icon="mdi:gmail" /> {"  "}
+              {userEmail}
             </span>
             <span className="sign-out" onClick={handleSignOut}>
               <Icon style={{ fontSize: 20 }} icon="mdi:logout" />
