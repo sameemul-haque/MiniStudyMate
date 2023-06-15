@@ -1,0 +1,15 @@
+exports.syllabusCourseCode = /\s*course\s*code\s*:*/i;
+exports.syllabusCourseName = /\s*course\s*name\s*:*/i;
+exports.syllabus = /syllabus/i;
+exports.whitespace = /\s/;
+exports.module1 = /\s*module\s*1\s*/i;
+exports.module2 = /\s*module\s*2\s*/i;
+exports.module3 = /\s*module\s*3\s*/i;
+exports.module4 = /\s*module\s*4\s*/i;
+exports.module5 = /\s*module\s*5\s*/i;
+exports.module6 = /\s*module\s*6\s*/i;
+exports.zeroCharacter = /^\s*$/;
+exports.hours = /\(\s*\d+\s*hours\s*\)/i;
+exports.textbooks = /\s*text\s*books\s*/i;
+exports.references = /\s*reference\s*/i;
+exports.newItem = /^\s*\d\.\s*|\s*\s*\d\.\s*/;

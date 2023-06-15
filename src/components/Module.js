@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import data from "../data/module.json";
 import "../css/module.css";
 
-function Module() {
+function Module({modules}) {
   const [selectedModule, setSelectedModule] = useState(null);
   const [selectedTopic, setSelectedTopic] = useState(null);
 
@@ -14,9 +14,11 @@ function Module() {
     setSelectedTopic(topic === selectedTopic ? null : topic);
   };
 
+  console.log(modules);
+
   return (
     <div className="module-container">
-      {data.modules.map((module) => (
+      {modules.map((module) => (
         <div key={module.id} className="module-wrapper">
           {" "}
           {}
