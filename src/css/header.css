@@ -1,5 +1,7 @@
 header {
   background-color: #402e77;
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   color: white;
   padding: 20px;
   position: fixed;
