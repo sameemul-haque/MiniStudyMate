@@ -6,7 +6,7 @@ import firebase from "firebase/compat/app";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase-config";
 import "./App.css";
-import { Icon } from "@iconify/react";
+import { FcGoogle } from "react-icons/fc";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -55,8 +55,7 @@ function SignIn() {
         style={{ position: "relative", margin: "0 auto" }}
         onClick={signInWithGoogle}
       >
-        <Icon style={{ fontSize: 20 }} icon="flat-color-icons:google" />{" "}
-        &nbsp;Sign in with Google
+        <FcGoogle /> &nbsp;Sign in with Google
       </button>
     </>
   );

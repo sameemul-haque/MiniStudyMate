@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { Icon } from "@iconify/react";
 import { auth } from "../firebase-config";
 import "../css/header.css";
+import * as AiIcons from "react-icons/ai";
+import * as FaIcons from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 function Header() {
   return (
     <header>
-      <div>
+      <>
         <SignOut />
-      </div>
+      </>
       <h1>
-        <Icon style={{ fontSize: 35 }} icon="game-icons:graduate-cap" />
+        <FaIcons.FaGraduationCap />
         StudyMate
       </h1>
       <p id="head-caption">A Web-based Study Material Retrieval System</p>
@@ -19,48 +21,66 @@ function Header() {
 }
 
 function SignOut() {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [rotateDownIcon, setRotateDownIcon] = useState(false);
-  const userEmail = auth.currentUser?.email;
+  const [sidebar, setSidebar] = useState(false);
 
-  const handleDropdownToggle = () => {
-    setShowDropdown(!showDropdown);
-    setRotateDownIcon(!rotateDownIcon);
-  };
+  const showSidebar = () => setSidebar(!sidebar);
 
-  const handleSignOut = () => {
-    auth.signOut();
-  };
+  const sidebarData = [
+    {
+      title: auth.currentUser?.email,
+      icon: <FaIcons.FaUserCircle />,
+      cName: "nav-text",
+    },
+    {
+      title: "Help",
+      icon: <FaIcons.FaQuestionCircle />,
+      cName: "nav-text",
+    },
+    {
+      title: "Signout",
+      icon: <FaIcons.FaSignOutAlt />,
+      cName: "nav-text",
+    },
+  ];
 
   return (
     auth.currentUser && (
-      <div className="logout-wrapper">
-        <div className="user-icon" onClick={handleDropdownToggle}>
-          <Icon style={{ fontSize: 30 }} icon="line-md:account" />
-          <Icon
-            className={rotateDownIcon ? "down-icon rotated" : "down-icon"}
-            style={{
-              position: "fixed",
-              marginTop: 15,
-              fontSize: 15,
-            }}
-            icon="mingcute:down-fill"
-          />
-        </div>
-        {showDropdown && (
-          <div className="user-info">
-            <span>
-              <Icon style={{ fontSize: 20 }} icon="mdi:gmail" /> {"  "}
-              {userEmail}
-            </span>
-            <span className="sign-out" onClick={handleSignOut}>
-              <Icon style={{ fontSize: 20 }} icon="mdi:logout" />
-              {"  "}
-              {"SIGN OUT"}
-            </span>
+      <>
+        <IconContext.Provider value={{ color: "#fff" }}>
+          <div className="navbar" onClick={showSidebar}>
+            <div className="menu-bars">
+              <FaIcons.FaBars />
+            </div>
           </div>
-        )}
-      </div>
+          <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+            <ul className="nav-menu-items" onClick={showSidebar}>
+              <li className="navbar-toggle">
+                <div className="menu-bars">
+                  <AiIcons.AiOutlineClose />
+                </div>
+              </li>
+              {sidebarData.map((item, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={item.cName}
+                    onClick={() => {
+                      if (item.title === "Signout") {
+                        auth.signOut();
+                      }
+                    }}
+                  >
+                    <div>
+                      {item.icon}
+                      <span className="navbar-span">{item.title}</span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </IconContext.Provider>
+      </>
     )
   );
 }
