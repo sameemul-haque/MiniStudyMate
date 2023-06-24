@@ -22,7 +22,8 @@ function Header() {
 
 function SignOut() {
   const [sidebar, setSidebar] = useState(false);
-
+  const [showHelp, setShowHelp] = useState(false);
+  const toggleHelp = () => setShowHelp(!showHelp);
   const showSidebar = () => setSidebar(!sidebar);
 
   const sidebarData = [
@@ -68,6 +69,9 @@ function SignOut() {
                       if (item.title === "Signout") {
                         auth.signOut();
                       }
+                      if (item.title === "Help") {
+                        toggleHelp();
+                      }
                     }}
                   >
                     <div>
@@ -80,9 +84,29 @@ function SignOut() {
             </ul>
           </nav>
         </IconContext.Provider>
+        {showHelp && (
+          <div className="help-popup">
+            <UserHelp onClose={toggleHelp} />
+          </div>
+        )}
       </>
     )
   );
 }
 
+function UserHelp({ onClose }) {
+  return (
+    <>
+      <div className="userhelp">
+        <p className="close-button-help">
+          <FaIcons.FaRegWindowClose
+            className="close-button-btn"
+            onClick={onClose}
+          />
+        </p>
+        <h1>Help</h1>
+      </div>
+    </>
+  );
+}
 export default Header;
