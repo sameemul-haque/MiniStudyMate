@@ -15,18 +15,6 @@ function Book({textbooks, references}) {
     setShowReferenceBooks(!showReferenceBooks);
   };
 
-  function searchResult(query){
-    axios.get('https://api.codetabs.com/v1/proxy?quest=https://serpapi.com/search.json?engine=google&q=Coffee&google_domain=google.com&hl=en&api_key=d68649707c3bad6349351b40011370ff9f352057dce7861280c5d970e7617db4')
-    .then(response => {
-      const jsonData = response.data;
-      console.log(jsonData.organic_results[0].link);
-      return(jsonData.organic_results[0].link);
-    })
-    .catch(error => {
-      return(error);
-    });
-  }
-
   console.log(textbooks);
 
   return (
@@ -38,11 +26,12 @@ function Book({textbooks, references}) {
         {showTextbooks && (
           <div>
             <ul>
-              {textbooks.map((textbook, index) => (
+              { textbooks && textbooks.map((textbook, index) => {
+                return(
                 <li key={index}>
-                  <a href={searchResult(textbook)}>{textbook}</a>
+                  <a href={textbook.link}>{textbook.name}</a>
                 </li>
-              ))}
+              )})}
             </ul>
           </div>
         )}

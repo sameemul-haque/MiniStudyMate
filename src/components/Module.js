@@ -36,14 +36,16 @@ function Module({modules}) {
               {module.topics.map((topic) => (
                 <div key={topic.id} className="topic">
                   <h4 onClick={() => handleTopicClick(topic)}>{topic.name}</h4>
-                  {topic === selectedTopic && (
+                  {topic === selectedTopic && 
+                  topic.video &&
+                  (
                     <ul>
                       {topic.videos.map((video) => (
                         <li key={video.id}>
-                          <a href={video.url}>
+                          <a href={`https://www.youtube.com/watch?v=${video.id}`}>
                             <div className="video-details">
                               <div className="video-thumbnail">
-                                <img src={video.thumbnail} alt={video.title} />
+                                <img src={video.thumbnail.url} alt={video.title} />
                               </div>
                               <div className="video-info">
                                 <p>{video.title}</p>

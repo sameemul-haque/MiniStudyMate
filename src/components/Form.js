@@ -7,6 +7,7 @@ import { auth } from "../firebase-config";
 import swal from "sweetalert";
 import "../css/form.css";
 import constants from "./constants";
+import axios from "axios";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -18,7 +19,8 @@ function Form() {
   const [uploading, setUploading] = useState(false);
   const [pdfExists, setPdfExists] = useState(false);
   const [syllabus, setSyllabus] = useState({topics:{module1:[],module2:[],module3:[],module4:[],module5:[]}});
-  let datas ;
+  let moduleDatas ;
+  let textbookDatas
 
   useEffect(() => {
     if (university) {
@@ -59,6 +61,9 @@ function Form() {
   };
 
   const handleFormSubmit = async (event) => {
+    axios.get(`http://localhost:2000/google/?q=${"subjectCode"}`)
+    .then(response => {console.log(response.data)})
+    .catch(err => {console.log("errr")});
     event.preventDefault();
     setShowModule(true);
     setShowBook(true);
@@ -133,135 +138,6 @@ function Form() {
                               setSyllabus(oldSyllabus => { return {...oldSyllabus, courseName : textContent.items[++i].str}});
                         }
                     }
-                    if(constants.syllabus.test(textContent.items[i].str) || isContinueSyllabus){
-                        isContinueSyllabus = true;
-                        for(i; i<textContent.items.length && isContinueSyllabus; i++){ //removed i++ if needed do a if clause for textContent.items[i].str 's test flag
-                            if(!constants.zeroCharacter.test(textContent.items[i].str)){
-                                if(constants.module1.test(textContent.items[i].str) || isContinueModules[1] ){
-                                    isContinueModules[1] = true;
-                                    for(i++; i<textContent.items.length; i++){
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.module2.test(textContent.items[i].str)){
-                                            isContinueModules[1] = false;
-                                            i--;
-                                            break;
-                                        }
-                                        module1 += ` ${textContent.items[i].str}`;
-                                    }
-                                    if(module1.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module1.search(constants.hours); j<module1.length && module1.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module1 = module1.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module1: module1.split(/-|\.|–|,|–/)}}});
-                                }
-                                else if(constants.module2.test(textContent.items[i].str) || isContinueModules[2] ){
-                                    isContinueModules[2] = true;
-                                    for(i; i<textContent.items.length; i++){
-                                        if(constants.module2.test(textContent.items[i].str)) continue;
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.module3.test(textContent.items[i].str)){
-                                            isContinueModules[2] = false;
-                                            i--;
-                                            break;
-                                        }
-                                        module2 += ` ${textContent.items[i].str}`;
-                                    }
-                                    if(module2.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module2.search(constants.hours); j<module2.length && module2.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module2 = module2.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module2: module2.split(/-|\.|–|,|–/)}}});
-                                }
-                                else if(constants.module3.test(textContent.items[i].str) || isContinueModules[3] ){
-                                    isContinueModules[3] = true;
-                                    for(i; i<textContent.items.length; i++){
-                                        if(constants.module3.test(textContent.items[i].str)) continue;
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.module4.test(textContent.items[i].str)){
-                                            isContinueModules[3] = false;
-                                            i--;
-                                            break;
-                                        }
-                                        module3 += ` ${textContent.items[i].str}`;
-                                    }
-                                    if(module3.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module3.search(constants.hours); j<module3.length && module3.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module3 = module3.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module3: module3.split(/-|\.|–|,|–/)}}});
-                                }
-                                else if(constants.module4.test(textContent.items[i].str) || isContinueModules[4] ){
-                                    isContinueModules[4] = true;
-                                    for(i; i<textContent.items.length; i++){
-                                        if(constants.module4.test(textContent.items[i].str)) continue;
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.module5.test(textContent.items[i].str)){
-                                            isContinueModules[4] = false;
-                                            i--;
-                                            break;
-                                        }
-                                        module4 += ` ${textContent.items[i].str}`;
-                                    }   
-                                    if(module4.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module4.search(constants.hours); j<module4.length && module4.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module4 = module4.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module4: module4.split(/-|\.|–|,|–/)}}});
-                                }
-                                else if(constants.module5.test(textContent.items[i].str) || isContinueModules[5] ){
-                                    isContinueModules[5] = true;
-                                    for(i; i<textContent.items.length; i++){
-                                        if(constants.module5.test(textContent.items[i].str)) continue;
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.module6.test(textContent.items[i].str) || constants.textbooks.test(textContent.items[i].str)){
-                                            isContinueModules[5] = false;
-                                            if(constants.textbooks.test(textContent.items[i].str)) isContinueSyllabus = false;
-                                            console.log(isContinueSyllabus);
-                                            i--;
-                                            break;
-                                        }
-                                        module5 += ` ${textContent.items[i].str}`;
-                                    }
-                                    if(module5.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module5.search(constants.hours); j<module5.length && module5.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module5 = module5.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module5: module5.split(/-|\.|–|,|–/)}}});
-                                }
-                                else if(constants.module6.test(textContent.items[i].str) || isContinueModules[6] ){
-                                    isContinueModules[6] = true;
-                                    for(i; i<textContent.items.length; i++){
-                                        if(constants.module6.test(textContent.items[i].str)) continue;
-                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
-                                        if(constants.textbooks.test(textContent.items[i].str)){
-                                            isContinueModules[6] = false;
-                                            isContinueSyllabus = false;
-                                            i--;
-                                            break;
-                                        }
-                                        module6 += ` ${textContent.items[i].str}`;    
-                                    }
-                                    if(module6.search(constants.hours) != -1){
-                                        let j;
-                                        for(j=module6.search(constants.hours); j<module6.length && module6.charAt(j) !== ')'; j++);
-                                        j++;
-                                        module6 = module6.slice(j);
-                                    }
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module6: module6.split(/-|\.|–|,|–/)}}});
-                                }
-                            }
-                        }
-                    }
                     if(i<textContent.items.length && (constants.textbooks.test(textContent.items[i].str) || isContinueTextbook)){
                         isContinueTextbook = true;
                         for(i ;i<textContent.items.length && !constants.references.test(textContent.items[i].str); i++){
@@ -281,6 +157,118 @@ function Form() {
                         if(i<textContent.items.length && textContent.items[i].str.toLowerCase().includes("lecture schedule")) isContinueReferences = false;
                         setSyllabus(oldSyllabus => { return {...oldSyllabus, references : references.split(constants.newItem).filter(item => item.length>0)}});
                     }
+                    if(i<textContent.items.length && (constants.syllabus.test(textContent.items[i].str) || isContinueSyllabus)){
+                      isContinueSyllabus = true;
+                      for(i; i<textContent.items.length && !textContent.items[i].str.toLowerCase().includes("no. of lectures"); i++);
+                      for(i; i<textContent.items.length && isContinueSyllabus; i++){ //removed i++ if needed do a if clause for textContent.items[i].str 's test flag
+                            if(!constants.zeroCharacter.test(textContent.items[i].str)){
+                                if(constants.module1.test(textContent.items[i].str) || isContinueModules[1] ){
+                                    isContinueModules[1] = true;
+                                    for(i++; i<textContent.items.length; i++){
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.module2.test(textContent.items[i].str)){
+                                            isContinueModules[1] = false;
+                                            i--;
+                                            break;
+                                        }
+                                        module1 += ` ${textContent.items[i].str}`;
+                                    }
+                                    module1 = module1.replace(constants.hours, " ");
+                                    module1 = [...module1.split(constants.module1Topics)];
+                                    module1.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module1}}});
+                                }
+                                else if(constants.module2.test(textContent.items[i].str) || isContinueModules[2] ){
+                                    isContinueModules[2] = true;
+                                    for(i; i<textContent.items.length; i++){
+                                        if(constants.module2.test(textContent.items[i].str)) continue;
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.module3.test(textContent.items[i].str)){
+                                            isContinueModules[2] = false;
+                                            i--;
+                                            break;
+                                        }
+                                        module2 += ` ${textContent.items[i].str}`;
+                                    }
+                                    module2 = module2.replace(constants.hours, " ");
+                                    module2 = [...module2.split(constants.module2Topics)];
+                                    module2.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module2}}});
+                                }
+                                else if(constants.module3.test(textContent.items[i].str) || isContinueModules[3] ){
+                                    isContinueModules[3] = true;
+                                    for(i; i<textContent.items.length; i++){
+                                        if(constants.module3.test(textContent.items[i].str)) continue;
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.module4.test(textContent.items[i].str)){
+                                            isContinueModules[3] = false;
+                                            i--;
+                                            break;
+                                        }
+                                        module3 += ` ${textContent.items[i].str}`;
+                                    }
+                                    module3 = module3.replace(constants.hours, " ");
+                                    module3 = [...module3.split(constants.module3Topics)];
+                                    module3.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module3}}});
+                                }
+                                else if(constants.module4.test(textContent.items[i].str) || isContinueModules[4] ){
+                                    isContinueModules[4] = true;
+                                    for(i; i<textContent.items.length; i++){
+                                        if(constants.module4.test(textContent.items[i].str)) continue;
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.module5.test(textContent.items[i].str)){
+                                            isContinueModules[4] = false;
+                                            i--;
+                                            break;
+                                        }
+                                        module4 += ` ${textContent.items[i].str}`;
+                                    }   
+                                    module4 = module4.replace(constants.hours, " ");
+                                    module4 = [...module4.split(constants.module4Topics)];
+                                    module4.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module4}}});
+                                }
+                                else if(constants.module5.test(textContent.items[i].str) || isContinueModules[5] ){
+                                    isContinueModules[5] = true;
+                                    for(i; i<textContent.items.length; i++){
+                                        if(constants.module5.test(textContent.items[i].str)) continue;
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.module6.test(textContent.items[i].str) || constants.textbooks.test(textContent.items[i].str)){
+                                            isContinueModules[5] = false;
+                                            if(constants.textbooks.test(textContent.items[i].str)) isContinueSyllabus = false;
+                                            console.log(isContinueSyllabus);
+                                            i--;
+                                            break;
+                                        }
+                                        module5 += ` ${textContent.items[i].str}`;
+                                    }
+                                    module5 = module5.replace(constants.hours, " ");
+                                    module5 = [...module5.split(constants.module5Topics)];
+                                    module5.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module5}}});
+                                }
+                                else if(constants.module6.test(textContent.items[i].str) || isContinueModules[6] ){
+                                    isContinueModules[6] = true;
+                                    for(i; i<textContent.items.length; i++){
+                                        if(constants.module6.test(textContent.items[i].str)) continue;
+                                        if(constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                                        if(constants.textbooks.test(textContent.items[i].str)){
+                                            isContinueModules[6] = false;
+                                            isContinueSyllabus = false;
+                                            i--;
+                                            break;
+                                        }
+                                        module6 += ` ${textContent.items[i].str}`;    
+                                    }
+                                    module6 = module6.replace(constants.hours, " ");
+                                    module6 = [...module6.split(constants.module6Topics)];
+                                    module6.shift();
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module6}}});
+                                }
+                            }
+                        }
+                    }
                 }
             })
         })
@@ -288,57 +276,25 @@ function Form() {
         
     }
   };
-  datas = [
+  if(syllabus.textbooks){
+    textbookDatas = syllabus.textbooks.map(item => {
+      return(
+        { name: item, link: "axios.get(`http://localhost:2000/google?q${encodeURI(item)}`).then(response => {console.log(response.data); return(response.data)})"}
+      )
+    })
+  }
+  moduleDatas = [
     { id: 1,
       name: "Module 1",
-      topics: syllabus.topics.module1.map((item,index) => {return{id:index,name:item,videos:[{
-        id: 1,
-        title: "Introduction to Data Structures",
-        url: "https://youtu.be/xLetJpcjHS0",
-        thumbnail: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
-        views: "933K"
-      },
-      {
-        id: 2,
-        title: "Data Structures and Algorithms for Beginners",
-        url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnail: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
-        views: "1.3M"
-      }]}})
+      topics: syllabus.topics.module1.map((item,index) => {return{id:index,name:item,videos:[]}})
     },
     { id: 2,
       name: "Module 2",
-      topics: syllabus.topics.module2.map((item,index) => {return{id:index,name:item,videos:[{
-        id: 1,
-        title: "Introduction to Data Structures",
-        url: "https://youtu.be/xLetJpcjHS0",
-        thumbnail: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
-        views: "933K"
-      },
-      {
-        id: 2,
-        title: "Data Structures and Algorithms for Beginners",
-        url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnail: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
-        views: "1.3M"
-      }]}})
+      topics: syllabus.topics.module2.map((item,index) => {return{id:index,name:item,videos: "axios.get(`http://localhost:2000/youtube?q${encodeURI(item)}`).then(response => response.data).catch(err => err.message)"}})
     },
     { id: 3,
       name: "Module 3",
-      topics: syllabus.topics.module3.map((item,index) => {return{id:index,name:item,videos:[{
-        id: 1,
-        title: "Introduction to Data Structures",
-        url: "https://youtu.be/xLetJpcjHS0",
-        thumbnail: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
-        views: "933K"
-      },
-      {
-        id: 2,
-        title: "Data Structures and Algorithms for Beginners",
-        url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnail: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
-        views: "1.3M"
-      }]}})
+      topics: syllabus.topics.module3.map((item,index) => {return{id:index,name:item,videos:[]}})
     },
     { id: 4,
       name: "Module 4",
@@ -375,7 +331,7 @@ function Form() {
       }]}})
     },
   ];
-  console.log(datas);
+  console.log(textbookDatas,moduleDatas);
 
   const handleFileUpload = async () => {
     if (file) {
@@ -463,8 +419,8 @@ function Form() {
         </div>
       )}
 
-      {showModule && <Module modules={datas}/>}
-      {showBook && <Book textbooks={syllabus.textbooks} references={syllabus.references}/>}
+      {showModule && <Module modules={moduleDatas}/>}
+      {showBook && <Book textbooks={textbookDatas} references={syllabus.references}/>}
     </div>
   );
 }
