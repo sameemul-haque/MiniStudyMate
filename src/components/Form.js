@@ -111,6 +111,7 @@ function Form() {
     let module1 = "";
     let module2 = "";
     let module3 = "";
+    let modArray = [];
     let module4 = "";
     let module5 = "";
     let module6 = "";
@@ -159,7 +160,7 @@ function Form() {
                     }
                     if(i<textContent.items.length && (constants.syllabus.test(textContent.items[i].str) || isContinueSyllabus)){
                       isContinueSyllabus = true;
-                      for(i; i<textContent.items.length && !textContent.items[i].str.toLowerCase().includes("no. of lectures"); i++);
+                      for(i; i<textContent.items.length && !textContent.items[i].str.toLowerCase().includes("no. of lectures") && !isContinueSyllabus; i++);
                       for(i; i<textContent.items.length && isContinueSyllabus; i++){ //removed i++ if needed do a if clause for textContent.items[i].str 's test flag
                             if(!constants.zeroCharacter.test(textContent.items[i].str)){
                                 if(constants.module1.test(textContent.items[i].str) || isContinueModules[1] ){
@@ -207,10 +208,13 @@ function Form() {
                                         }
                                         module3 += ` ${textContent.items[i].str}`;
                                     }
+                                    if(module3.length === 0) continue;
                                     module3 = module3.replace(constants.hours, " ");
-                                    module3 = [...module3.split(constants.module3Topics)];
-                                    module3.shift();
-                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, module3}}});
+                                    modArray = [...module3.split(constants.module3Topics)];
+                                    module3 = "";
+                                    modArray.shift();
+                                    console.log(modArray);
+                                    setSyllabus(oldSyllabus => { return {...oldSyllabus, topics: {...oldSyllabus.topics, modArray}}});
                                 }
                                 else if(constants.module4.test(textContent.items[i].str) || isContinueModules[4] ){
                                     isContinueModules[4] = true;
