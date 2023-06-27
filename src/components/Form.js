@@ -319,7 +319,10 @@ function Form() {
   moduleDatas = [
     { id: 1,
       name: "Module 1",
-      topics: syllabus.topics.module1.map((item,index) => {return{id:index,name:item,videos:[]}})
+      topics: syllabus.topics.module1.map(async (item,index) => {
+        let videoData = await search("youtube",item).then(data => data);
+        return{id:index,name:item,videos: videoData }
+      })
     },
     { id: 2,
       name: "Module 2",
@@ -330,41 +333,24 @@ function Form() {
     },
     { id: 3,
       name: "Module 3",
-      topics: syllabus.topics.module3.map((item,index) => {return{id:index,name:item,videos:[]}})
+      topics: syllabus.topics.module3.map(async (item,index) => {
+        let videoData = await search("youtube",item).then(data => data);
+        return{id:index,name:item,videos: videoData }
+      })
     },
     { id: 4,
       name: "Module 4",
-      topics: syllabus.topics.module4.map((item,index) => {return{id:index,name:item,videos:[{
-        id: 1,
-        title: "Introduction to Data Structures",
-        url: "https://youtu.be/xLetJpcjHS0",
-        thumbnails: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
-        views: "933K"
-      },
-      {
-        id: 2,
-        title: "Data Structures and Algorithms for Beginners",
-        url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnails: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
-        views: "1.3M"
-      }]}})
+      topics: syllabus.topics.module4.map(async (item,index) => {
+        let videoData = await search("youtube",item).then(data => data);
+        return{id:index,name:item,videos: videoData }
+      })
     },
     { id: 5,
       name: "Module 5",
-      topics: syllabus.topics.module5.map((item,index) => {return{id:index,name:item,videos:[{
-        id: 1,
-        title: "Introduction to Data Structures",
-        url: "https://youtu.be/xLetJpcjHS0",
-        thumbnail: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
-        views: "933K"
-      },
-      {
-        id: 2,
-        title: "Data Structures and Algorithms for Beginners",
-        url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnails: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
-        views: "1.3M"
-      }]}})
+      topics: syllabus.topics.module5.map(async (item,index) => {
+        let videoData = await search("youtube",item).then(data => data);
+        return{id:index,name:item,videos: videoData }
+      })
     },
   ];
   console.log(textbookDatas,moduleDatas);
