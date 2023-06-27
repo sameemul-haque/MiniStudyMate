@@ -106,58 +106,60 @@ function UserHelp({ onClose }) {
         </p>
         <h1>FAQs</h1>
         <br />
-        <div className="faqbox">
-          <p>
-            <FaIcons.FaRegQuestionCircle />
-            &nbsp; Is there a cost to use StudyMate ?
-          </p>
-          <br />
-          <p>
-            <FaIcons.FaHandPointRight />
-            &nbsp; No, StudyMate is completely free. Users can use it once they
-            log in.
-          </p>
-          <br />
-        </div>
-        <div className="faqbox">
-          <p>
-            <FaIcons.FaRegQuestionCircle />
-            &nbsp; Can I access StudyMate on my mobile device ?
-          </p>
-          <br />
-          <p>
-            <FaIcons.FaHandPointRight />
-            &nbsp; Yes, StudyMate can be accessed on all web browsers on any
-            device that have an Internet connection.
-          </p>
-          <br />
-        </div>
-        <div className="faqbox">
-          <p>
-            <FaIcons.FaRegQuestionCircle />
-            &nbsp; Can I use StudyMate offline ?
-          </p>
-          <br />
-          <p>
-            <FaIcons.FaHandPointRight />
-            &nbsp; No, StudyMate requires an active internet connection.
-          </p>
-          <br />
-        </div>
-        <div className="faqbox">
-          <p>
-            <FaIcons.FaRegQuestionCircle />
-            &nbsp; How can I search for specific study materials or subjects on
-            StudyMate ?
-          </p>
-          <br />
-          <p>
-            <FaIcons.FaHandPointRight />
-            &nbsp; The user can access the materials once he selects the
-            university and enters subject code, he can access youtube lectures
-            related to the topics, textbooks and reference books etc.
-          </p>
-          <br />
+        <div className="faq-container">
+          <div className="faqbox">
+            <p>
+              <FaIcons.FaRegQuestionCircle />
+              &nbsp; Is there a cost to use StudyMate ?
+            </p>
+            <br />
+            <p>
+              <FaIcons.FaHandPointRight />
+              &nbsp; No, StudyMate is completely free. Users can use it once
+              they log in.
+            </p>
+            <br />
+          </div>
+          <div className="faqbox">
+            <p>
+              <FaIcons.FaRegQuestionCircle />
+              &nbsp; Can I access StudyMate on my mobile device ?
+            </p>
+            <br />
+            <p>
+              <FaIcons.FaHandPointRight />
+              &nbsp; Yes, StudyMate can be accessed on all web browsers on any
+              device that have an Internet connection.
+            </p>
+            <br />
+          </div>
+          <div className="faqbox">
+            <p>
+              <FaIcons.FaRegQuestionCircle />
+              &nbsp; Can I use StudyMate offline ?
+            </p>
+            <br />
+            <p>
+              <FaIcons.FaHandPointRight />
+              &nbsp; No, StudyMate requires an active internet connection.
+            </p>
+            <br />
+          </div>
+          <div className="faqbox">
+            <p>
+              <FaIcons.FaRegQuestionCircle />
+              &nbsp; How can I search for specific study materials or subjects
+              on StudyMate ?
+            </p>
+            <br />
+            <p>
+              <FaIcons.FaHandPointRight />
+              &nbsp; The user can access the materials once he selects the
+              university and enters subject code, he can access youtube lectures
+              related to the topics, textbooks and reference books etc.
+            </p>
+            <br />
+          </div>
         </div>
       </div>
     </>
