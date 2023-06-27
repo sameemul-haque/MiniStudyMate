@@ -15,7 +15,6 @@ header {
 header h1 {
   color: #28dcdc;
   text-align: center;
-  text-transform: uppercase;
 }
 
 #head-caption {
@@ -123,6 +122,7 @@ div.help-popup {
 }
 .userhelp h1 {
   color: white;
+  font-weight: bolder;
 }
 .close-button-help {
   text-align: end;
@@ -132,4 +132,9 @@ div.help-popup {
 }
 .close-button-btn {
   cursor: pointer;
+}
+.faqbox {
+  border: #f5f5f5 solid 0.2rem;
+  border-radius: 1rem;
+  margin: 0.5rem;
 }
