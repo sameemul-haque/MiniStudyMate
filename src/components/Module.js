@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import data from "../data/module.json";
 import "../css/module.css";
 
@@ -13,6 +13,20 @@ function Module({modules}) {
   const handleTopicClick = (topic) => {
     setSelectedTopic(topic === selectedTopic ? null : topic);
   };
+
+  useEffect(() => {
+    modules.forEach( module => {
+      Promise.all(module.topics.videos)
+      .then(results => {
+        let res = results;
+        module.topics.videos = res;
+      })
+      .catch(error => {
+        // Handle the error
+        console.error(error);
+      })
+    });
+  },[modules])
 
   console.log(modules);
 
@@ -37,15 +51,16 @@ function Module({modules}) {
                 <div key={topic.id} className="topic">
                   <h4 onClick={() => handleTopicClick(topic)}>{topic.name}</h4>
                   {topic === selectedTopic && 
-                  topic.video &&
                   (
                     <ul>
-                      {topic.videos.map((video) => (
+                      {topic.videos ? topic.videos.map((video) => {
+                        
+                        return(
                         <li key={video.id}>
                           <a href={`https://www.youtube.com/watch?v=${video.id}`}>
                             <div className="video-details">
                               <div className="video-thumbnail">
-                                <img src={video.thumbnail.url} alt={video.title} />
+                                <img src={video.thumbnails.url} alt={video.title} />
                               </div>
                               <div className="video-info">
                                 <p>{video.title}</p>
@@ -54,7 +69,7 @@ function Module({modules}) {
                             </div>
                           </a>
                         </li>
-                      ))}
+                      )}) : <div>Loading...</div>}
                     </ul>
                   )}
                 </div>

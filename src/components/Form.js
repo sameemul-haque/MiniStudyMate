@@ -8,6 +8,7 @@ import swal from "sweetalert";
 import "../css/form.css";
 import constants from "./constants";
 import axios from "axios";
+import { func } from "prop-types";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -20,7 +21,8 @@ function Form() {
   const [pdfExists, setPdfExists] = useState(false);
   const [syllabus, setSyllabus] = useState({topics:{module1:[],module2:[],module3:[],module4:[],module5:[]}});
   let moduleDatas ;
-  let textbookDatas
+  let textbookDatas;
+  let referencebookDatas;
 
   useEffect(() => {
     if (university) {
@@ -281,12 +283,39 @@ function Form() {
     }
   };
   if(syllabus.textbooks){
-    textbookDatas = syllabus.textbooks.map(item => {
+    textbookDatas = syllabus.textbooks.map(async item => {
+      const response = await search("google",item);
+      const data = await response.link;
       return(
-        { name: item, link: "axios.get(`http://localhost:2000/google?q${encodeURI(item)}`).then(response => {console.log(response.data); return(response.data)})"}
+        { name: item, link: data}
       )
     })
   }
+  if(syllabus.references){
+    referencebookDatas = syllabus.references.map(async item => {
+      const response = await search("google",item);
+      const data = await response.link;
+      return(
+        { name: item, link: data}
+      )
+    })
+  }
+
+  async function search(domain,query){
+    try{
+      const response =  await axios.get(`http://localhost:2000/${domain}`,{
+        params: {
+          q: query
+        }
+      });
+      const data = response.data;
+      return data;
+    }catch(err){
+      console.error(err);
+      return(err);
+    }
+  }
+
   moduleDatas = [
     { id: 1,
       name: "Module 1",
@@ -294,7 +323,10 @@ function Form() {
     },
     { id: 2,
       name: "Module 2",
-      topics: syllabus.topics.module2.map((item,index) => {return{id:index,name:item,videos: "axios.get(`http://localhost:2000/youtube?q${encodeURI(item)}`).then(response => response.data).catch(err => err.message)"}})
+      topics: syllabus.topics.module2.map(async (item,index) => {
+        let videoData = await search("youtube",item).then(data => data);
+        return{id:index,name:item,videos: videoData }
+      })
     },
     { id: 3,
       name: "Module 3",
@@ -306,14 +338,14 @@ function Form() {
         id: 1,
         title: "Introduction to Data Structures",
         url: "https://youtu.be/xLetJpcjHS0",
-        thumbnail: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
+        thumbnails: "https://i.ytimg.com/vi/xLetJpcjHS0/hq720.jpg",
         views: "933K"
       },
       {
         id: 2,
         title: "Data Structures and Algorithms for Beginners",
         url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnail: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
+        thumbnails: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
         views: "1.3M"
       }]}})
     },
@@ -330,7 +362,7 @@ function Form() {
         id: 2,
         title: "Data Structures and Algorithms for Beginners",
         url: "https://youtu.be/BBpAmxU_NQo",
-        thumbnail: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
+        thumbnails: "https://i.ytimg.com/vi/BBpAmxU_NQo/hq720.jpg",
         views: "1.3M"
       }]}})
     },
@@ -424,7 +456,7 @@ function Form() {
       )}
 
       {showModule && <Module modules={moduleDatas}/>}
-      {showBook && <Book textbooks={textbookDatas} references={syllabus.references}/>}
+      {showBook && <Book textbooks={textbookDatas} references={referencebookDatas}/>}
     </div>
   );
 }
