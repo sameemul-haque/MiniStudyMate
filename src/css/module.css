@@ -1,6 +1,8 @@
 .module-container {
   flex-wrap: wrap;
   margin: 0 auto;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 .module-button {
@@ -30,6 +32,7 @@
   color: #0065fc;
   cursor: pointer;
   transition: all 0.2s;
+  padding: 0.5rem;
 }
 
 .topic:hover {
@@ -38,6 +41,7 @@
 
 .topics {
   margin-left: 20px;
+  padding: 0.5rem;
 }
 
 h4 {
@@ -49,6 +53,7 @@ ul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 10px;
+  padding: 0.5rem;
 }
 
 li {
@@ -67,6 +72,7 @@ a:hover {
 .video-details {
   display: flex;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .video-thumbnail {

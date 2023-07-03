@@ -6,6 +6,7 @@
 
 .input-group {
   position: relative;
+  margin-left: 2rem;
 }
 
 .input {
@@ -43,10 +44,6 @@ input:valid ~ label {
   font-weight: bolder;
 }
 
-div {
-  padding: 10px;
-}
-
 #submitbtn {
   background-color: #77ff74;
   color: #000;
@@ -57,6 +54,8 @@ div {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s;
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 #submitbtn:hover {
@@ -72,6 +71,10 @@ select {
   font-weight: bolder;
   background-color: #402e77;
   color: #fff;
+  margin-bottom: 1rem;
+}
+option {
+  font-weight: bolder;
 }
 
 #subjcode {
@@ -93,18 +96,23 @@ input:-webkit-autofill {
 }
 
 .syllabus-label {
-  background-color: #fff;
-  border: 2px solid #999;
-  border-radius: 3px;
-  padding: 5px;
+  margin-left: 2rem;
+  color: #000000 !important;
+  background-color: #77ff74;
+  border: 2px solid #000000;
+  border-radius: 0.5rem;
+  padding: 0.5rem !important;
   outline: none;
   margin-right: 5px;
   white-space: nowrap;
   cursor: pointer;
   font-weight: 700;
   font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 .syllabus-label:hover {
-  border: 2px solid #000;
-  background-color: #bbb;
+  background-color: #402e77;
+  color: #fff !important;
+  transition: all 0.2s;
 }
