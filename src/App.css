@@ -27,7 +27,7 @@ body {
 
 #signin[type="submit"] {
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   border: none;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -37,14 +37,14 @@ body {
 #signin[type="submit"]:is(:hover, :focus) {
   background-color: #54a7ff;
   transition: all 0.2s;
-  color: #000;
+  color: #000000;
 }
 .sign-in {
-  background-color: #fff;
-  color: #000;
+  background-color: #ffffff;
+  color: #000000;
   font-size: 1rem;
   font-weight: bolder;
-  border: #000 solid 0.2rem;
+  border: #000000 solid 0.2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -53,9 +53,9 @@ body {
 }
 
 .sign-in:is(:hover, :focus) {
-  border: #fff solid 0.2rem;
+  border: #ffffff solid 0.2rem;
   font-size: 1.1rem;
   transition: all 0.2s;
-  background-color: #000;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
 }

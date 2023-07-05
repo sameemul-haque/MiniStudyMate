@@ -1,11 +1,10 @@
 .book-container {
-  display: flex;
-  flex-wrap: wrap;
+  margin: 0 auto;
   margin-top: 1rem;
   margin-left: 2rem;
 }
 
-button {
+.book-button {
   background-color: #402e77;
   color: white;
   border: none;
@@ -18,7 +17,7 @@ button {
   transition: all 0.2s;
 }
 
-button:hover {
+.book-button:hover {
   background-color: #0052d9;
 }
 
@@ -32,6 +31,7 @@ ul {
 li {
   margin-bottom: 5px;
   padding: 0.5rem;
+  margin-left: 20px;
 }
 
 a {

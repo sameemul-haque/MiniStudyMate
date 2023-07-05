@@ -9,7 +9,7 @@ import "../css/form.css";
 import constants from "./constants";
 import axios from "axios";
 import { func } from "prop-types";
-import * as AiIcons from "react-icons/ai";
+import * as Hi2Icons from "react-icons/hi2";
 
 function Form() {
   const [university, setUniversity] = useState("");
@@ -57,14 +57,35 @@ function Form() {
     setShowBook(false);
   };
 
+  const [fileNames, setFileNames] = useState([]);
+
   const handleSubjectCodeChange = (event) => {
     const code = event.target.value.toUpperCase();
     setSubjectCode(code);
+
+    const userId = auth.currentUser.uid;
+    const folderPaths = [userId ? `pdfs/${userId}` : "pdfs", "pdfs"];
+
+    Promise.all(
+      folderPaths.map((folderPath) => storage.ref(folderPath).listAll())
+    )
+      .then((results) => {
+        const names = results.flatMap((res) =>
+          res.items.map((item) => item.name.replace(".pdf", ""))
+        );
+        setFileNames(names);
+      })
+      .catch((error) => {
+        console.error("Error retrieving file names:", error);
+        setFileNames([]);
+      });
   };
 
+  const [fileName, setFileName] = useState("");
   const handleFileChange = (event) => {
     const uploadedFile = event.target.files[0];
     setFile(uploadedFile);
+    setFileName(uploadedFile.name);
   };
 
   const handleFormSubmit = async (event) => {
@@ -571,13 +592,18 @@ function Form() {
           const progress = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
-
           Swal.fire({
-            titleText: `Uploading: ${progress}%`,
-            confirmButtonText: "OK",
+            titleText: `Uploading ${subjectCode}.pdf : ${progress}%`,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            didOpen: () => {
+              Swal.showLoading();
+            },
           });
         });
-        await pdfPath.put(file);
+
+        await uploadTask;
+
         console.log("File uploaded successfully!");
         Swal.fire({
           titleText: "File uploaded successfully. Click the Submit button",
@@ -629,9 +655,16 @@ function Form() {
               value={subjectCode}
               onChange={handleSubjectCodeChange}
               className="input"
+              list="file-names-list"
+              autocomplete="off"
               required
             />
             <label className="user-label">Subject Code</label>
+            <datalist id="file-names-list">
+              {fileNames.map((name, index) => (
+                <option key={index} value={name} />
+              ))}
+            </datalist>
           </div>
         )}
         {(university === "mg" || university === "calicut") && (
@@ -667,10 +700,12 @@ function Form() {
           />
 
           <label htmlFor="syllabus-upload" className="syllabus-label">
-            <AiIcons.AiFillFileAdd />
-            &nbsp; Select your syllabus
+            <Hi2Icons.HiDocumentPlus />{" "}
+            {fileName || " Select your syllabus pdf"}
           </label>
-          <button onClick={handleFileUpload}>Upload</button>
+          <button className="uploadbtn" onClick={handleFileUpload}>
+            <Hi2Icons.HiDocumentArrowUp /> Upload
+          </button>
         </div>
       )}
 

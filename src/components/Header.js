@@ -47,7 +47,7 @@ function SignOut() {
   return (
     auth.currentUser && (
       <>
-        <IconContext.Provider value={{ color: "#fff" }}>
+        <IconContext.Provider value={{ color: "#ffffff" }}>
           <div className="navbar" onClick={showSidebar}>
             <div className="menu-bars">
               <FaIcons.FaBars />
