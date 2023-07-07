@@ -20,6 +20,7 @@ header h1 {
 #head-caption {
   text-align: center;
   color: #95cfde;
+  text-transform: uppercase;
 }
 
 .logout-wrapper {
@@ -108,7 +109,7 @@ header h1 {
 }
 
 .navbar-span {
-  margin-left: 16px;
+  padding: 1.5rem;
 }
 
 /* FAQs */
@@ -138,11 +139,11 @@ div.help-popup {
 .faqbox {
   border: #f5f5f5 solid 0.2rem;
   border-radius: 1rem;
-  margin: 0.5rem;
+  margin: 1rem;
   padding: 1rem;
 }
 .faq-container {
   height: 80vh;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }

@@ -48,11 +48,11 @@ function Book({ textbooks, references }) {
         </button>
         {showTextbooks && (
           <div>
-            <ul>
+            <ul className="bookul">
               {textData &&
                 textData.map((textbook, index) => {
                   return (
-                    <li key={index}>
+                    <li className="bookli" key={index}>
                       <a href={textbook.link}>{textbook.name}</a>
                     </li>
                   );
@@ -67,12 +67,12 @@ function Book({ textbooks, references }) {
         </button>
         {showReferenceBooks && (
           <div>
-            <ul>
+            <ul className="bookul">
               {referenceData &&
                 referenceData.map((referenceBook, index) => {
                   console.log(referenceBook.link);
                   return (
-                    <li key={index}>
+                    <li className="bookli" key={index}>
                       <a href={referenceBook.link}>{referenceBook.name}</a>
                     </li>
                   );

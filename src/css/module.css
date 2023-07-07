@@ -48,14 +48,14 @@ h4 {
   margin-bottom: 5px;
 }
 
-ul {
+.topicul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 10px;
   padding: 0.5rem;
 }
 
-li {
+.topicli {
   margin-bottom: 5px;
 }
 

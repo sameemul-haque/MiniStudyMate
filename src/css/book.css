@@ -21,14 +21,14 @@
   background-color: #0052d9;
 }
 
-ul {
+.bookul {
   list-style: none;
   padding-left: 0;
   margin-bottom: 10px;
   padding: 0.5rem;
 }
 
-li {
+.bookli {
   margin-bottom: 5px;
   padding: 0.5rem;
   margin-left: 20px;

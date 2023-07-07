@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { auth } from "../firebase-config";
 import "../css/header.css";
 import * as AiIcons from "react-icons/ai";
@@ -15,7 +15,7 @@ function Header() {
         <FaIcons.FaGraduationCap />
         StudyMate
       </h1>
-      <p id="head-caption">A Web-based Study Material Retrieval System</p>
+      <p id="head-caption">Web based Study Material Retrieval System</p>
     </header>
   );
 }
@@ -95,6 +95,11 @@ function SignOut() {
 }
 
 function UserHelp({ onClose }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "unset");
+  }, []);
+
   return (
     <>
       <div className="userhelp">
