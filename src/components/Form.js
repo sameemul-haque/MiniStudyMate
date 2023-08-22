@@ -46,7 +46,7 @@ function Form() {
       } catch (error) {
         setPdfExists(false);
       }
-    };
+    };``
 
     checkPdfExists();
   }, [subjectCode]);
@@ -90,7 +90,7 @@ function Form() {
 
   const handleFormSubmit = async (event) => {
     axios
-      .get(`http://localhost:2000/google/?q=${"subjectCode"}`)
+      .get(`http://localhost:2004/google/?q=${"subjectCode"}`)
       .then((response) => {
         console.log(response.data);
       })
@@ -101,8 +101,8 @@ function Form() {
     setErrorOccurred(false);
     setShowModule(true);
     setShowBook(true);
-    console.log("Subject Code is:", subjectCode);
-    console.log("Selected university is:", university);
+    //console.log("Subject Code is:", subjectCode);
+    //console.log("Selected university is:", university);
 
     pdfjsLib.GlobalWorkerOptions.workerSrc =
       "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.6.172/pdf.worker.js";
@@ -155,15 +155,18 @@ function Form() {
     let module1 = "";
     let module2 = "";
     let module3 = "";
-    let modArray = [];
     let module4 = "";
     let module5 = "";
     let module6 = "";
+    let module1Array = [];
+    let module2Array = [];
+    let module3Array = [];
+    let module4Array = [];
     let references = "";
     let textbooks = "";
     for (let i = 1; i <= pdf.numPages; i++) {
       await pdf.getPage(i).then(async (page) => {
-        await page.getTextContent().then((textContent) => {
+        await page.getTextContent().then(async (textContent) => {
           for (let i = 0; i < textContent.items.length; i++) {
             if (constants.syllabusCourseCode.test(textContent.items[i].str)) {
               if (
@@ -224,13 +227,13 @@ function Form() {
                 for (
                   i;
                   i < textContent.items.length &&
-                  constants.zeroCharacter.test(textContent.items[i].str);
+                  constants.whitespace.test(textContent.items[i].str);
                   i++
                 );
                 setSyllabus((oldSyllabus) => {
                   return {
                     ...oldSyllabus,
-                    courseName: textContent.items[++i].str,
+                    courseName: textContent.items[i].str,
                   };
                 });
               }
@@ -339,12 +342,13 @@ function Form() {
                       module1 += ` ${textContent.items[i].str}`;
                     }
                     module1 = module1.replace(constants.hours, " ");
-                    module1 = [...module1.split(constants.module1Topics)];
-                    module1.shift();
+                    module1Array = [...module1.split(constants.module1Topics)];
+                    module1 = "";
+                    module1Array.shift();
                     setSyllabus((oldSyllabus) => {
                       return {
                         ...oldSyllabus,
-                        topics: { ...oldSyllabus.topics, module1 },
+                        topics: { ...oldSyllabus.topics, module1: module1Array },
                       };
                     });
                   } else if (
@@ -367,12 +371,13 @@ function Form() {
                       module2 += ` ${textContent.items[i].str}`;
                     }
                     module2 = module2.replace(constants.hours, " ");
-                    module2 = [...module2.split(constants.module2Topics)];
-                    module2.shift();
+                    module2Array = [...module2.split(constants.module2Topics)];
+                    module2 = "";
+                    module2Array.shift();
                     setSyllabus((oldSyllabus) => {
                       return {
                         ...oldSyllabus,
-                        topics: { ...oldSyllabus.topics, module2 },
+                        topics: { ...oldSyllabus.topics, module2: module2Array },
                       };
                     });
                   } else if (
@@ -396,16 +401,18 @@ function Form() {
                     }
                     if (module3.length === 0) continue;
                     module3 = module3.replace(constants.hours, " ");
-                    modArray = [...module3.split(constants.module3Topics)];
+                    module3 = module3.replace(constants.it, "");
+                    module3Array = [...module3.split(constants.module3Topics)];
                     module3 = "";
-                    modArray.shift();
-                    console.log(modArray);
+                    let moduleName = module3Array.shift();
+                    console.log("module Name : " + moduleName);
                     setSyllabus((oldSyllabus) => {
                       return {
                         ...oldSyllabus,
-                        topics: { ...oldSyllabus.topics, modArray },
+                        topics: { ...oldSyllabus.topics, module3: module3Array },
                       };
                     });
+                    console.log(syllabus.topics.module3);
                   } else if (
                     constants.module4.test(textContent.items[i].str) ||
                     isContinueModules[4]
@@ -426,12 +433,13 @@ function Form() {
                       module4 += ` ${textContent.items[i].str}`;
                     }
                     module4 = module4.replace(constants.hours, " ");
-                    module4 = [...module4.split(constants.module4Topics)];
-                    module4.shift();
+                    module4Array = [...module4.split(constants.module4Topics)];
+                    module4 = "";
+                    module4Array.shift();
                     setSyllabus((oldSyllabus) => {
                       return {
                         ...oldSyllabus,
-                        topics: { ...oldSyllabus.topics, module4 },
+                        topics: { ...oldSyllabus.topics, module4: module4Array },
                       };
                     });
                   } else if (
@@ -439,27 +447,13 @@ function Form() {
                     isContinueModules[5]
                   ) {
                     isContinueModules[5] = true;
+                    console.log("yaaay");
                     for (i; i < textContent.items.length; i++) {
-                      if (constants.module5.test(textContent.items[i].str))
-                        continue;
-                      if (
-                        constants.zeroCharacter.test(textContent.items[i].str)
-                      )
-                        continue;
-                      if (
-                        constants.module6.test(textContent.items[i].str) ||
-                        constants.textbooks.test(textContent.items[i].str)
-                      ) {
-                        isContinueModules[5] = false;
-                        if (constants.textbooks.test(textContent.items[i].str))
-                          isContinueSyllabus = false;
-                        console.log(isContinueSyllabus);
-                        i--;
-                        break;
-                      }
+                      if (constants.zeroCharacter.test(textContent.items[i].str)) continue;
+                      console.log(textContent.items[i].str);
                       module5 += ` ${textContent.items[i].str}`;
                     }
-                    module5 = module5.replace(constants.hours, " ");
+                    console.log(module5);
                     module5 = [...module5.split(constants.module5Topics)];
                     module5.shift();
                     setSyllabus((oldSyllabus) => {
@@ -505,6 +499,7 @@ function Form() {
         });
       });
     }
+    console.log("Course Name" +syllabus.syllabusCourseName);
   };
   if (syllabus.textbooks) {
     textbookDatas = syllabus.textbooks.map(async (item) => {
@@ -523,9 +518,9 @@ function Form() {
 
   async function search(domain, query) {
     try {
-      const response = await axios.get(`http://localhost:2000/${domain}`, {
+      const response = await axios.get(`http://localhost:2004/${domain}`, {
         params: {
-          q: query,
+          q: query + syllabus.courseName,
         },
       });
       const data = response.data;
