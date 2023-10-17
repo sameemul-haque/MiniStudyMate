@@ -518,7 +518,7 @@ function Form() {
 
   async function search(domain, query) {
     try {
-      const response = await axios.get(`http://localhost:2004/${domain}`, {
+      const response = await axios.get(`https://scrapeapi.vercel.app/${domain}`, {
         params: {
           q: query + syllabus.courseName,
         },
