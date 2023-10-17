@@ -46,7 +46,7 @@ function Form() {
       } catch (error) {
         setPdfExists(false);
       }
-    };``
+    };
 
     checkPdfExists();
   }, [subjectCode]);
